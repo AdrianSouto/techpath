@@ -2,7 +2,7 @@ import {Bar, BarChart, XAxis, YAxis} from "recharts"
 import {
     Card,
     CardContent,
-    CardDescription,
+    CardDescription, CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -19,6 +19,7 @@ export const description = "A mixed bar chart"
 type Props = {
     name: string,
     description?: string,
+    footerText?: string,
     data: [string, number][]
 }
 
@@ -76,6 +77,9 @@ export function MyBarChart(props: Props) {
                     </BarChart>
                 </ChartContainer>
             </CardContent>
+            <CardFooter>
+                <CardDescription>{props.footerText}</CardDescription>
+            </CardFooter>
         </Card>
 
     )

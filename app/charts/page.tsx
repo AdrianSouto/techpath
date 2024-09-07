@@ -3,7 +3,8 @@
 import * as React from "react"
 import data from "@/lib/data.json";
 import {MyBarChart} from "@/app/charts/components/MyBarChart";
-import {dataType, frameworkLanguage, tecnoCampo} from "@/lib/utils";
+import {dataType, frameworkLanguage, getAverageGeneral, getAverageSalaryRange, tecnoCampo} from "@/lib/utils";
+import MyPieChart from "@/app/charts/components/MyPieChart";
 
 
 export default function Charts() {
@@ -13,6 +14,10 @@ export default function Charts() {
     const modalidades: Record<string, number> = {}
     const salaryRanges: Record<string, number> = {}
     const experiencias: Record<string, number> = {}
+    const paises: Record<string, number> = {}
+    const empleadores: Record<string, number> = {}
+    const idiomas: Record<string, number> = {}
+
 
     data.forEach((item: dataType) => {
             if (item.Profesion) {
@@ -73,6 +78,34 @@ export default function Charts() {
                         experiencias[numberXP.toString()] = 1
 
             }
+
+            if (item.Pais) {
+                if (paises[item.Pais]) {
+                    paises[item.Pais]++
+                } else {
+                    paises[item.Pais] = 1
+                }
+            }
+            if (item.Empleador) {
+                if (empleadores[item.Empleador]) {
+                    empleadores[item.Empleador]++
+                } else {
+                    empleadores[item.Empleador] = 1
+                }
+            }
+            if (item.Idiomas) {
+                if (idiomas['Inglés']) {
+                    idiomas['Inglés']++
+                } else {
+                    idiomas['Inglés'] = 1
+                }
+            }else{
+                if (idiomas['Español']) {
+                    idiomas['Español']++
+                } else {
+                    idiomas['Español'] = 1
+                }
+            }
         }
     )
     console.log(modalidades)
@@ -99,14 +132,25 @@ export default function Charts() {
     const topExperiencias = Object.entries(experiencias)
         .sort(([, a], [, b]) => b - a)
         .slice(0, 10)
+
+    const topPaises = Object.entries(paises)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
+
+    const topEmpleadores = Object.entries(empleadores)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
     return (
         <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10'}>
             <MyBarChart name={"Profesiones"} data={topProfesiones}/>
             <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
             <MyBarChart name={"Campos"} data={topCampos}/>
             <MyBarChart name={"Modalidades"} data={topModalidades}/>
-            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"} data={topSalaryRanges}/>
-            <MyBarChart name={"Experiencia"} data={topExperiencias}/>
+            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"} footerText={`Rango promedio de salarios: ${getAverageSalaryRange(salaryRanges)}`} data={topSalaryRanges}/>
+            <MyBarChart name={"Experiencia"} footerText={getAverageGeneral(experiencias)} data={topExperiencias}/>
+            <MyBarChart name={"Paises"} data={topPaises}/>
+            <MyBarChart name={"Empleadores"} data={topEmpleadores}/>
+            <MyPieChart data={Object.entries(idiomas)} name={'Idiomas'}/>
         </div>
     )
 }

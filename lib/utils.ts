@@ -1,8 +1,37 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import {type ClassValue, clsx} from "clsx"
+import {twMerge} from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function getAverageSalaryRange(salaryRanges: Record<string, number>): string {
+    let totalSalary = 0;
+    let totalCount = 0;
+
+    for (const range in salaryRanges) {
+        const count = salaryRanges[range];
+        const [min, max] = range.split('-').map(Number);
+
+        totalSalary += (min + max) / 2 * count;
+        totalCount += count;
+    }
+
+    const averageSalary = totalSalary / totalCount;
+    return `${Math.floor(averageSalary / 100) * 100}-${Math.floor(averageSalary / 100) * 100 + 99}`;
+}
+export function getAverageGeneral(array: Record<string, number>): string {
+    let total = 0;
+    let count = 0;
+
+    for (const key in array) {
+        if (parseFloat(key)) {
+            total += parseFloat(key) * array[key];
+            count += array[key];
+        }
+    }
+
+    return Math.floor(total / count).toString();
 }
 
 export type dataType = {

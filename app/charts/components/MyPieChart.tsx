@@ -20,8 +20,12 @@ const chartConfig = {
 } satisfies ChartConfig
 
 type Props = {
+    name: string,
+    description?: string,
+    footerText?: string,
     data: [string, number][]
 }
+
 
 export default function MyPieChart(props: Props) {
     const chartData: {
@@ -43,8 +47,8 @@ export default function MyPieChart(props: Props) {
     return (
         <Card className="flex flex-col">
             <CardHeader className="items-center pb-0">
-                <CardTitle>Profesiones</CardTitle>
-                <CardDescription>Cantidad de anuncios de cada profesione</CardDescription>
+                <CardTitle>{props.name}</CardTitle>
+                <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
             </CardHeader>
             <CardContent className="flex-1 pb-0">
                 <ChartContainer
@@ -96,7 +100,8 @@ export default function MyPieChart(props: Props) {
                     </PieChart>
                 </ChartContainer>
             </CardContent>
-            <CardFooter className="flex-col gap-2 text-sm mt-5">
+            <CardFooter>
+                <CardDescription>{props.footerText}</CardDescription>
             </CardFooter>
         </Card>
     )
