@@ -1,28 +1,39 @@
-import laptopImage from '@/public/laptop.png';
-import Image from "next/image";
+"use client"
 
-export default function Home() {
-  return (
-        <main className={'h-svh flex justify-around items-center p-8'}>
-            <div className={'flex flex-col space-y-5 -translate-y-16 w-1/3 p-5'}>
-                <h1 className={'font-bold text-3xl'}>
-                    Infórmate
-                </h1>
-                <p className={'font-light text-pretty'}>
-                    Este sitio tiene el objetivo de informar sobre las <span className={'text-blue-500'}>ofertas laborales</span> en el <span className={'text-blue-500'}>sector tecnológico</span> en Cuba
-                </p>
-            </div>
-            <div className={'w-1/3 flex justify-center items-center'}>
-                <Image src={laptopImage} alt={'laptop'} width={400} height={400}/>
-            </div>
-            <div className={'flex flex-col space-y-5 translate-y-16 w-1/3 p-5'}>
-                <h1 className={'font-bold text-3xl'}>
-                    Confía
-                </h1>
-                <p className={'font-light text-pretty'}>
-                    Toda la información mostrada proviene de ofertas laborales <span className={'text-blue-500'}>reales</span> para obtener la mayor <span className={'text-blue-500'}>fiabilidad </span>posible
-                </p>
-            </div>
-        </main>
-  );
+import MyHome from "@/app/components/MyHome";
+import {useEffect, useState} from "react";
+import {makeData} from "@/lib/procesaData";
+import {getSortedSliced} from "@/lib/utils";
+import * as React from "react";
+import Profesiones from "@/app/components/Profesiones";
+
+export default function Main() {
+    const [data, setData] = useState({
+        profesiones: {},
+        tecnologias: {},
+        campos: {},
+        modalidades: {},
+        salaryRanges: {},
+        experiencias: {},
+        paises: {},
+        empleadores: {},
+        idiomas: {}
+    })
+    useEffect(() => {
+        async function fetchData() {
+            const result = await makeData()
+            setData(result)
+        }
+
+        fetchData()
+    }, [])
+    return (
+        <div className={'p-8'}>
+
+            <MyHome/>
+            <Profesiones profesiones={data.profesiones}/>
+
+        </div>
+
+    );
 }

@@ -20,7 +20,8 @@ type Props = {
     name: string,
     description?: string,
     footerText?: string,
-    data: [string, number][]
+    data: [string, number][],
+    className?: string
 }
 
 export function MyBarChart(props: Props) {
@@ -44,7 +45,8 @@ export function MyBarChart(props: Props) {
     });
 
     return (
-        <Card className={'flex-col flex h-[80vh] lg:h-fit'}>
+        <div className={`${props.className? props.className: 'h-[80vh] lg:h-fit'}`}>
+            <Card className={'flex-col flex h-full'}>
             <CardHeader>
                 <CardTitle>{props.name}</CardTitle>
                 <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
@@ -81,6 +83,8 @@ export function MyBarChart(props: Props) {
                 <CardDescription>{props.footerText}</CardDescription>
             </CardFooter>
         </Card>
+        </div>
+
 
     )
 }
