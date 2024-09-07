@@ -43,7 +43,7 @@ export function MyBarChart(props: Props) {
     });
 
     return (
-        <Card className={'flex-col flex h-svh lg:h-fit'}>
+        <Card className={'flex-col flex h-[80vh] lg:h-fit'}>
             <CardHeader>
                 <CardTitle>{props.name}</CardTitle>
                 <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
@@ -77,5 +77,6 @@ export function MyBarChart(props: Props) {
                 </ChartContainer>
             </CardContent>
         </Card>
+
     )
 }
