@@ -82,7 +82,7 @@ export default function Charts() {
 
     const topTecnologias = Object.entries(tecnologias)
         .sort(([, a], [, b]) => b - a)
-        .slice(0, 15)
+        .slice(0, 10)
 
     const topCampos = Object.entries(campos)
         .sort(([, a], [, b]) => b - a)
@@ -100,8 +100,8 @@ export default function Charts() {
         .sort(([, a], [, b]) => b - a)
         .slice(0, 10)
     return (
-        <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10 auto-rows-auto'}>
-            <MyBarChart name={"Tecnologias"} data={topProfesiones}/>
+        <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10'}>
+            <MyBarChart name={"Profesiones"} data={topProfesiones}/>
             <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
             <MyBarChart name={"Campos"} data={topCampos}/>
             <MyBarChart name={"Modalidades"} data={topModalidades}/>
