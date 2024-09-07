@@ -85,7 +85,7 @@ export default function Charts() {
         .slice(0, 10)
 
     return (
-        <div className={'grid grid-cols-2 gap-4 p-20'}>
+        <div className={'grid grid-cols-1 lg:grid-cols-2 lg:gap-4 p-10'}>
             <MyPieChart data={topProfesiones}/>
             <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
             <MyBarChart name={"Campos"} data={topCampos}/>
