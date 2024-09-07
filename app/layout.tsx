@@ -15,6 +15,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="es">
+        <head>
+            <meta charSet="UTF-8"/>
+            <link rel="icon" type="image/svg+xml" href="/logo-mini.svg"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>TechPath</title>
+        </head>
         <body
             className={`${monserrat.className} antialiased bg-tuatara-50 flex flex-col`}
         >
