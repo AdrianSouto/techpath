@@ -4,7 +4,7 @@ import * as React from "react"
 import data from "@/lib/data.json";
 import MyPieChart from "@/app/charts/components/MyPieChart";
 import {MyBarChart} from "@/app/charts/components/MyBarChart";
-import {dataType, tecnoCampo} from "@/lib/utils";
+import {dataType, frameworkLanguage, tecnoCampo} from "@/lib/utils";
 
 export default function Charts() {
     const profesiones: Record<string, number> = {}
@@ -35,6 +35,13 @@ export default function Charts() {
                         campos[tecnoCampo[tecnologia]] = 1
                     }
                 }
+                if (frameworkLanguage[tecnologia]) {
+                    if (tecnologias[frameworkLanguage[tecnologia]]) {
+                        tecnologias[frameworkLanguage[tecnologia]]++
+                    } else {
+                        tecnologias[frameworkLanguage[tecnologia]] = 1
+                    }
+                }
             })
         }
         if (item.Modalidad) {
@@ -62,20 +69,20 @@ export default function Charts() {
         .sort(([, a], [, b]) => b - a)
 
     const topTecnologias = Object.entries(tecnologias)
-        .slice(0, 10)
         .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
 
     const topCampos = Object.entries(campos)
-        .slice(0, 10)
         .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
 
     const topModalidades = Object.entries(modalidades)
-        .slice(0, 10)
         .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
 
     const topSalaryRanges = Object.entries(salaryRanges)
-        .slice(0, 10)
         .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
 
     return (
         <div className={'grid grid-cols-2 gap-4 p-20'}>

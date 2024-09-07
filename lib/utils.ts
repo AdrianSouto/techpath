@@ -97,3 +97,38 @@ export const tecnoCampo: Record<string, string> = {
     "Rust": "Otras",
     "Scala": "Otras"
 };
+
+export const frameworkLanguage: Record<string, string> = {
+    "React": "JavaScript",
+    "Angular": "TypeScript",
+    "Vue.js": "JavaScript",
+    "NextJS": "JavaScript",
+    "Svelte": "JavaScript",
+    "Ember.js": "JavaScript",
+    "Backbone.js": "JavaScript",
+    "Node.js": "JavaScript",
+    "Django": "Python",
+    "Flask": "Python",
+    "Laravel": "PHP",
+    "Spring Boot": "Java",
+    "Ruby on Rails": "Ruby",
+    "Express.js": "JavaScript",
+    "NestJS": "TypeScript",
+    "Flutter": "Dart",
+    "React Native": "JavaScript",
+    "Ionic": "JavaScript",
+    "Xamarin": "C#",
+    "Cordova": "JavaScript",
+    "Kotlin": "Kotlin",
+    "Swift": "Swift",
+    ".NET": "C#",
+    "AWS Lambda": "JavaScript",
+    "Azure Functions": "JavaScript",
+    "Google Cloud Functions": "JavaScript",
+    "Terraform": "HCL",
+    "Ansible": "YAML",
+    "Kubernetes": "Go",
+    "Docker": "Go",
+    "Jenkins": "Java",
+    "GitHub Actions": "JavaScript"
+};

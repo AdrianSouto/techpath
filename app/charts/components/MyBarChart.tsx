@@ -62,7 +62,8 @@ export function MyBarChart(props: Props) {
                             dataKey="name"
                             type="category"
                             tickLine={false}
-                            tickMargin={0}
+                            tickMargin={10}
+                            width={100}  // Aumentar el espacio del texto del eje Y
                             axisLine={false}
                             tickFormatter={(value) => chartConfig[value as keyof typeof chartConfig]?.label || value}
                         />
