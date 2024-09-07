@@ -3,7 +3,14 @@
 import * as React from "react"
 import data from "@/lib/data.json";
 import {MyBarChart} from "@/app/charts/components/MyBarChart";
-import {dataType, frameworkLanguage, getAverageGeneral, getAverageSalaryRange, tecnoCampo} from "@/lib/utils";
+import {
+    dataType,
+    frameworkLanguage,
+    getAverageGeneral,
+    getAverageSalaryRange,
+    getSortedSliced,
+    tecnoCampo
+} from "@/lib/utils";
 import MyPieChart from "@/app/charts/components/MyPieChart";
 
 
@@ -99,7 +106,7 @@ export default function Charts() {
                 } else {
                     idiomas['Inglés'] = 1
                 }
-            }else{
+            } else {
                 if (idiomas['Español']) {
                     idiomas['Español']++
                 } else {
@@ -108,48 +115,18 @@ export default function Charts() {
             }
         }
     )
-    console.log(modalidades)
-    const topProfesiones = Object.entries(profesiones)
-        .slice(0, 10)
-        .sort(([, a], [, b]) => b - a)
-
-    const topTecnologias = Object.entries(tecnologias)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topCampos = Object.entries(campos)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topModalidades = Object.entries(modalidades)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topSalaryRanges = Object.entries(salaryRanges)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topExperiencias = Object.entries(experiencias)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topPaises = Object.entries(paises)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
-
-    const topEmpleadores = Object.entries(empleadores)
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
     return (
         <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10'}>
-            <MyBarChart name={"Profesiones"} data={topProfesiones}/>
-            <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
-            <MyBarChart name={"Campos"} data={topCampos}/>
-            <MyBarChart name={"Modalidades"} data={topModalidades}/>
-            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"} footerText={`Rango promedio de salarios: ${getAverageSalaryRange(salaryRanges)}`} data={topSalaryRanges}/>
-            <MyBarChart name={"Experiencia"} footerText={getAverageGeneral(experiencias)} data={topExperiencias}/>
-            <MyBarChart name={"Paises"} data={topPaises}/>
-            <MyBarChart name={"Empleadores"} data={topEmpleadores}/>
+            <MyBarChart name={"Profesiones"} data={getSortedSliced(profesiones)}/>
+            <MyBarChart name={"Tecnologias"} data={getSortedSliced(tecnologias)}/>
+            <MyBarChart name={"Campos"} data={getSortedSliced(campos)}/>
+            <MyBarChart name={"Modalidades"} data={getSortedSliced(modalidades)}/>
+            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"}
+                        footerText={`Rango promedio de salarios: ${getAverageSalaryRange(salaryRanges)}`}
+                        data={getSortedSliced(salaryRanges)}/>
+            <MyBarChart name={"Experiencia"} footerText={getAverageGeneral(experiencias)} data={getSortedSliced(experiencias)}/>
+            <MyBarChart name={"Paises"} data={getSortedSliced(paises)}/>
+            <MyBarChart name={"Empleadores"} data={getSortedSliced(empleadores)}/>
             <MyPieChart data={Object.entries(idiomas)} name={'Idiomas'}/>
         </div>
     )

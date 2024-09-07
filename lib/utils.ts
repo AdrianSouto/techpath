@@ -34,6 +34,12 @@ export function getAverageGeneral(array: Record<string, number>): string {
     return Math.floor(total / count).toString();
 }
 
+export function getSortedSliced(profesiones: Record<string, number>) {
+    return Object.entries(profesiones)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 10)
+}
+
 export type dataType = {
     Profesion?: string
     Tecnologias?: string[] | null
