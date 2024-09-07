@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47.657" height="33.657" viewBox="0 0 47.657 33.657">
+  <g id="logo-mini" transform="translate(-121.672 -34.672)">
+    <g id="Grupo_6">
+      <line id="Línea_4" x1="14" y2="14" transform="translate(124.5 37.5)" fill="none" stroke="#323330" stroke-linecap="round" stroke-width="4"/>
+      <line id="Línea_5" x1="14" y2="14" transform="translate(138.5 51.5) rotate(90)" fill="none" stroke="#323330" stroke-linecap="round" stroke-width="4"/>
+    </g>
+    <g id="Grupo_7" transform="translate(291 103) rotate(180)">
+      <line id="Línea_4-2" x1="14" y2="14" transform="translate(124.5 37.5)" fill="none" stroke="#323330" stroke-linecap="round" stroke-width="4"/>
+      <line id="Línea_5-2" x1="14" y2="14" transform="translate(138.5 51.5) rotate(90)" fill="none" stroke="#323330" stroke-linecap="round" stroke-width="4"/>
+    </g>
+  </g>
+</svg>
