@@ -47,11 +47,11 @@ export default function Charts() {
                     }
                 })
             }
-            if (item.Modalidad) {
-                if (modalidades[item.Modalidad]) {
-                    modalidades[item.Modalidad]++
+            if (item["Modalidad de Trabajo"]) {
+                if (modalidades[item["Modalidad de Trabajo"]]) {
+                    modalidades[item["Modalidad de Trabajo"]]++
                 } else {
-                    modalidades[item.Modalidad] = 1
+                    modalidades[item["Modalidad de Trabajo"]] = 1
                 }
             }
             if (item.Salario) {
@@ -76,14 +76,14 @@ export default function Charts() {
             }
         }
     )
-        console.log(experiencias)
+        console.log(modalidades)
         const topProfesiones = Object.entries(profesiones)
             .slice(0, 10)
             .sort(([, a], [, b]) => b - a)
 
         const topTecnologias = Object.entries(tecnologias)
             .sort(([, a], [, b]) => b - a)
-            .slice(0, 10)
+            .slice(0, 15)
 
         const topCampos = Object.entries(campos)
             .sort(([, a], [, b]) => b - a)
@@ -106,7 +106,7 @@ export default function Charts() {
                 <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
                 <MyBarChart name={"Campos"} data={topCampos}/>
                 <MyBarChart name={"Modalidades"} data={topModalidades}/>
-                <MyBarChart name={"Salarios"} data={topSalaryRanges}/>
+                <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"} data={topSalaryRanges}/>
                 <MyBarChart name={"Experiencia"} data={topExperiencias}/>
             </div>
         )

@@ -43,13 +43,13 @@ export function MyBarChart(props: Props) {
     });
 
     return (
-        <Card>
+        <Card className={'flex-col flex size-full'}>
             <CardHeader>
                 <CardTitle>{props.name}</CardTitle>
                 <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
             </CardHeader>
-            <CardContent>
-                <ChartContainer config={chartConfig}>
+            <CardContent className={'size-full'}>
+                <ChartContainer config={chartConfig} className={'size-full'}>
                     <BarChart
                         accessibilityLayer
                         data={chartData}
