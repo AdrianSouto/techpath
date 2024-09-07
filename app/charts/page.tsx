@@ -65,11 +65,13 @@ export default function Charts() {
                     }
                 }
             }
-            if (typeof item.Experiencia === 'number') {
-                if (experiencias[item.Experiencia])
-                    experiencias[item.Experiencia]++
+            if (item.Experiencia) {
+                const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia;
+                if (!isNaN(numberXP))
+                if (experiencias[numberXP.toString()])
+                    experiencias[numberXP.toString()]++
                 else
-                    experiencias[item.Experiencia] = 1
+                    experiencias[numberXP.toString()] = 1
 
             }
         }
