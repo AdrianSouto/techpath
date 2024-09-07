@@ -1,0 +1,89 @@
+"use client"
+
+import * as React from "react"
+import data from "@/lib/data.json";
+import MyPieChart from "@/app/charts/components/MyPieChart";
+import {MyBarChart} from "@/app/charts/components/MyBarChart";
+import {dataType, tecnoCampo} from "@/lib/utils";
+
+export default function Charts() {
+    const profesiones: Record<string, number> = {}
+    const tecnologias: Record<string, number> = {}
+    const campos: Record<string, number> = {}
+    const modalidades: Record<string, number> = {}
+    const salaryRanges: Record<string, number> = {}
+
+    data.forEach((item: dataType) => {
+        if (item.Profesion) {
+            if (profesiones[item.Profesion]) {
+                profesiones[item.Profesion]++
+            } else {
+                profesiones[item.Profesion] = 1
+            }
+        }
+        if (item.Tecnologias) {
+            item.Tecnologias.forEach((tecnologia: string) => {
+                if (tecnologias[tecnologia]) {
+                    tecnologias[tecnologia]++
+                } else {
+                    tecnologias[tecnologia] = 1
+                }
+                if (tecnoCampo[tecnologia]) {
+                    if (campos[tecnoCampo[tecnologia]]) {
+                        campos[tecnoCampo[tecnologia]]++
+                    } else {
+                        campos[tecnoCampo[tecnologia]] = 1
+                    }
+                }
+            })
+        }
+        if (item.Modalidad) {
+            if (modalidades[item.Modalidad]) {
+                modalidades[item.Modalidad]++
+            } else {
+                modalidades[item.Modalidad] = 1
+            }
+        }
+        if (item.Salario) {
+            const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario;
+            if (salario !== null && !isNaN(salario)) {
+                const range = `${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}`;
+                if (salaryRanges[range]) {
+                    salaryRanges[range]++
+                } else {
+                    salaryRanges[range] = 1
+                }
+            }
+        }
+    })
+
+    const topProfesiones = Object.entries(profesiones)
+        .slice(0, 10)
+        .sort(([, a], [, b]) => b - a)
+
+    const topTecnologias = Object.entries(tecnologias)
+        .slice(0, 10)
+        .sort(([, a], [, b]) => b - a)
+
+    const topCampos = Object.entries(campos)
+        .slice(0, 10)
+        .sort(([, a], [, b]) => b - a)
+
+    const topModalidades = Object.entries(modalidades)
+        .slice(0, 10)
+        .sort(([, a], [, b]) => b - a)
+
+    const topSalaryRanges = Object.entries(salaryRanges)
+        .slice(0, 10)
+        .sort(([, a], [, b]) => b - a)
+
+    return (
+        <div className={'grid grid-cols-2 gap-4 p-20'}>
+            <MyPieChart data={topProfesiones}/>
+            <MyBarChart name={"Tecnologias"} data={topTecnologias}/>
+            <MyBarChart name={"Campos"} data={topCampos}/>
+            <MyBarChart name={"Modalidades"} data={topModalidades}/>
+            <MyBarChart name={"Salarios"} data={topSalaryRanges}/>
+        </div>
+    )
+}
