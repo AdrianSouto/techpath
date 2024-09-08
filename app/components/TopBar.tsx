@@ -9,7 +9,7 @@ export default function TopBar() {
     const [currentRoute, setCurrentRoute] = useState<string>('/')
 
     return (
-        <nav className={'bg-black w-svw font-medium absolute'}>
+        <nav className={'bg-black w-svw font-medium'}>
             <div className={'flex select-none space-x-8 absolute start-12 top-6'}>
                 <article className={'group'}>
                     <Link href={'/'} onClick={()=>setCurrentRoute('/')}>Inicio</Link>
