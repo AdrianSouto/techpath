@@ -1,14 +1,9 @@
 import {type ClassValue, clsx} from "clsx"
 import {twMerge} from "tailwind-merge"
-import data from "@/lib/data.json";
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
-
-
-
-
 
 export function getAverageSalaryRange(salaryRanges: Record<string, number>): string {
     let totalSalary = 0;
@@ -37,10 +32,10 @@ export function getAverageGeneral(array: Record<string, number>): string {
         }
     }
 
-    return Math.floor(total / count).toString();
+    return (total / count).toString();
 }
 
-export function getSortedSliced(profesiones: Record<string, number>, slice: number = 10): [string, number][] {
+export function getSortedSliced(profesiones: Record<string, number>): [string, number][] {
     return Object.entries(profesiones)
         .sort(([, a], [, b]) => b - a)
         .slice(0, 10)

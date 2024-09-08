@@ -3,7 +3,6 @@
 import MyHome from "@/app/components/MyHome";
 import {useEffect, useState} from "react";
 import {makeData} from "@/lib/procesaData";
-import {getSortedSliced} from "@/lib/utils";
 import * as React from "react";
 import Profesiones from "@/app/components/Profesiones";
 
@@ -27,6 +26,7 @@ export default function Main() {
 
         fetchData()
     }, [])
+
     return (
         <div className={'p-8'}>
 
