@@ -3,7 +3,6 @@
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {makeData} from "@/lib/procesaData";
-import {getRandomColor} from "@/lib/utils";
 
 export default function Page() {
 
