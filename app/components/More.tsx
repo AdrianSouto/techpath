@@ -13,8 +13,8 @@ type Props = {
 export default function More({setShowMore, data, filter, setFilter}: Props) {
     const sortedProfesiones = getSortedSliced(data, 50)
     return (
-        <section className={'mt-20 w-[90svw]'}>
-            <div className={'flex items-center w-full'}>
+        <section className={'mt-20 w-[90svw] '}>
+            <div className={'flex items-center justify-between w-full px-10'}>
                 <button
                     onClick={() => setShowMore(false)}
                     className={'flex font-bold justify-center items-center border-tuatara-950 py-2 px-4 bg-white rounded-full border-2 hover:cursor-pointer hover:bg-tuatara-950 hover:text-tuatara-100 transition-all hover:scale-105'}>
@@ -22,6 +22,7 @@ export default function More({setShowMore, data, filter, setFilter}: Props) {
                     Ir atrás
                 </button>
                 <h1 className={'ms-10 font-bold uppercase absolute end-1/2 border-b-2 border-blue-600'}>TOP {sortedProfesiones.length}</h1>
+                <h2 className={'ms-10 font-semibold text-green-700'}>Seleccionados: {filter.length} </h2>
             </div>
 
             <div className={'flex justify-center mt-5'}>
