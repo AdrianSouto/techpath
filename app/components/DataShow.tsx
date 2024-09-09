@@ -17,6 +17,7 @@ export default function DataShow({title, subtitle, description, data, chartType 
     const profesionesArray = Object.entries(data)
     const sortedProfesiones = profesionesArray.sort(([, a], [, b]) => b - a)
     const [showMore, setShowMore] = useState(false)
+    const [filter , setFilter] = useState<[string, number][]>([])
     return (
         <section>
 
@@ -30,7 +31,7 @@ export default function DataShow({title, subtitle, description, data, chartType 
                         <p>{description}</p>
                     </div>
                     {showMore ?
-                        <More setShowMore={setShowMore} data={data}/>
+                        <More filter={filter} setFilter={setFilter} setShowMore={setShowMore} data={data}/>
                         :
                         <div className={'flex flex-col justify-center items-center space-y-4 mt-10'}>
                             {
@@ -57,12 +58,12 @@ export default function DataShow({title, subtitle, description, data, chartType 
                         {
                             chartType === 'bar' &&
                             (<MyBarChart name={title} description={title + " " + subtitle}
-                                        data={sortedProfesiones.slice(0, 10)}/>)
+                                        data={filter.length !== 0? filter : sortedProfesiones.slice(0, 10)}/>)
                         }
                         {
                             chartType === 'pie' &&
                             (<MyPieChart name={title} description={title + " " + subtitle}
-                                        data={sortedProfesiones.slice(0, 10)}/>
+                                        data={filter.length !== 0? filter : sortedProfesiones.slice(0, 10)}/>
                             )
                         }
                     </div>

@@ -16,8 +16,8 @@ export default function TopBar() {
                     <div className={`rounded-full h-0.5 w-${currentRoute === '/' ? 'full' : '0'} bg-blue-500 group-hover:w-full transition-all`}/>
                 </article>
                 <article className={'group'}>
-                    <h2>Blog</h2>
-                    <div className={'rounded-full h-0.5 w-0 bg-blue-500 group-hover:w-full transition-all'}/>
+                    <Link href={'/blog'} onClick={()=>setCurrentRoute('/blog')}>Artículo</Link>
+                    <div className={`rounded-full h-0.5 w-${currentRoute === '/blog' ? 'full' : '0'} bg-blue-500 group-hover:w-full transition-all`}/>
                 </article>
                 <article className={'group'}>
                     <Link href={'/charts'} onClick={()=>setCurrentRoute('/charts')}>Gráficos</Link>

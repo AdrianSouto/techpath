@@ -6,9 +6,11 @@ import {getSortedSliced} from "@/lib/utils";
 
 type Props = {
     setShowMore: React.Dispatch<React.SetStateAction<boolean>>
-    data: Record<string, number>
+    data: Record<string, number>,
+    filter: [string, number][],
+    setFilter: React.Dispatch<React.SetStateAction<[string, number][]>>
 }
-export default function More({setShowMore, data}: Props) {
+export default function More({setShowMore, data, filter, setFilter}: Props) {
     const sortedProfesiones = getSortedSliced(data, 50)
     return (
         <section className={'mt-20 w-[90svw]'}>
@@ -28,7 +30,17 @@ export default function More({setShowMore, data}: Props) {
                         sortedProfesiones.map(([name, cantidad], index) => {
                             return (
                                 <div key={index}
-                                     className={`flex items-center rounded-lg px-4`}>
+                                     onClick={() => {
+                                         if (!filter.some(([filteredName]) => filteredName === name)) {
+                                             setFilter([...filter, [name, cantidad]]);
+                                         }else {
+                                                setFilter(filter.filter(([filteredName]) => filteredName !== name))
+
+                                         }
+                                     }}
+                                     className={`flex items-center rounded-lg px-4 hover:cursor-pointer
+                                        ${filter.some(([filteredName]) => filteredName === name) && 'border-2 border-green-700'}
+                                     `}>
                                     <h1 className={'font-extrabold'}>{index + 1}</h1>
                                     <div className={'flex flex-col ms-5'}>
                                         <h2 className={' text-sm font-bold uppercase'}>{name}</h2>
