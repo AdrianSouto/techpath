@@ -11,14 +11,23 @@ export function getAverageSalaryRange(salaryRanges: Record<string, number>): str
 
     for (const range in salaryRanges) {
         const count = salaryRanges[range];
-        const [min, max] = range.split('-').map(Number);
+        const match = range.match(/(\d+)-(\d+)/);
 
-        totalSalary += (min + max) / 2 * count;
-        totalCount += count;
+        if (match) {
+            const min = parseInt(match[1], 10);
+            const max = parseInt(match[2], 10);
+
+            totalSalary += (min + max) / 2 * count;
+            totalCount += count;
+        }
+    }
+
+    if (totalCount === 0) {
+        return "(0-0)USD";
     }
 
     const averageSalary = totalSalary / totalCount;
-    return `${Math.floor(averageSalary / 100) * 100}-${Math.floor(averageSalary / 100) * 100 + 99}`;
+    return `(${Math.floor(averageSalary / 100) * 100}-${Math.floor(averageSalary / 100) * 100 + 99})USD`;
 }
 
 export function getAverageGeneral(array: Record<string, number>): string {
@@ -32,13 +41,13 @@ export function getAverageGeneral(array: Record<string, number>): string {
         }
     }
 
-    return (total / count).toString();
+    return Math.floor(total / count).toString();
 }
 
-export function getSortedSliced(profesiones: Record<string, number>): [string, number][] {
+export function getSortedSliced(profesiones: Record<string, number>, slice: number = 10): [string, number][] {
     return Object.entries(profesiones)
         .sort(([, a], [, b]) => b - a)
-        .slice(0, 10)
+        .slice(0, slice)
 }
 
 export type dataType = {
@@ -97,6 +106,7 @@ export const tecnoCampo: Record<string, string> = {
     "nest": "web backend",
     "c#": "web backend",
     ".net": "web backend",
+    "fast api": "web backend",
 
     "android": "mobile",
     "ios": "mobile",
@@ -115,7 +125,7 @@ export const tecnoCampo: Record<string, string> = {
     "oracle": "bases de datos",
     "sqlite": "bases de datos",
     "nosql": "bases de datos",
-    "mariadb": "bases de dates",
+    "mariadb": "bases de datos",
 
     "aws": "cloud",
     "azure": "cloud",
@@ -152,6 +162,7 @@ export const frameworkLanguage: Record<string, string> = {
     "node.js": "javascript",
     "django": "python",
     "flask": "python",
+    "fast api": "python",
     "laravel": "php",
     "spring boot": "java",
     "ruby on rails": "ruby",

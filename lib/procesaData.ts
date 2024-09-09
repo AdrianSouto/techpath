@@ -44,70 +44,80 @@ export async function makeData() {
             })
         }
         if (item["Modalidad de Trabajo"]) {
-            if (modalidades[item["Modalidad de Trabajo"]]) {
-                modalidades[item["Modalidad de Trabajo"]]++
-            } else {
-                modalidades[item["Modalidad de Trabajo"]] = 1
-            }
-        }
-        if (item.Salario) {
-            const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario
-            if (salario !== null && !isNaN(salario)) {
-                const range = `${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}`
-                if (salaryRanges[range]) {
-                    salaryRanges[range]++
+            if (item["Modalidad de Trabajo"] === 'Remoto') {
+                if (modalidades['Remoto']) {
+                    modalidades['Remoto']++
                 } else {
-                    salaryRanges[range] = 1
+                    modalidades['Remoto'] = 1
+                }
+            } else {
+                if (modalidades['Presencial']) {
+                    modalidades['Presencial']++
+                } else {
+                    modalidades['Presencial'] = 1
                 }
             }
         }
-        if (item.Experiencia) {
-            const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia
-            if (!isNaN(numberXP))
-                if (experiencias[numberXP.toString()])
-                    experiencias[numberXP.toString()]++
-                else
-                    experiencias[numberXP.toString()] = 1
 
-        }
+            if (item.Salario) {
+                const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario
+                if (salario !== null && !isNaN(salario)) {
+                    const range = `(${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}) USD`
+                    if (salaryRanges[range]) {
+                        salaryRanges[range]++
+                    } else {
+                        salaryRanges[range] = 1
+                    }
+                }
+            }
+            if (item.Experiencia) {
+                const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia
+                if (!isNaN(numberXP))
+                    if (experiencias[numberXP.toString() + " años"])
+                        experiencias[numberXP.toString() + " años"]++
+                    else
+                        experiencias[numberXP.toString() + " años"] = 1
 
-        if (item.Pais) {
-            if (paises[item.Pais]) {
-                paises[item.Pais]++
+            }
+
+            if (item.Pais) {
+                if (paises[item.Pais]) {
+                    paises[item.Pais]++
+                } else {
+                    paises[item.Pais] = 1
+                }
+            }
+            if (item.Empleador) {
+                if (empleadores[item.Empleador]) {
+                    empleadores[item.Empleador]++
+                } else {
+                    empleadores[item.Empleador] = 1
+                }
+            }
+            if (item.Idiomas) {
+                if (idiomas['Inglés']) {
+                    idiomas['Inglés']++
+                } else {
+                    idiomas['Inglés'] = 1
+                }
             } else {
-                paises[item.Pais] = 1
+                if (idiomas['Español']) {
+                    idiomas['Español']++
+                } else {
+                    idiomas['Español'] = 1
+                }
             }
         }
-        if (item.Empleador) {
-            if (empleadores[item.Empleador]) {
-                empleadores[item.Empleador]++
-            } else {
-                empleadores[item.Empleador] = 1
-            }
+    )
+        return {
+            profesiones,
+            tecnologias,
+            campos,
+            modalidades,
+            salaryRanges,
+            experiencias,
+            paises,
+            empleadores,
+            idiomas
         }
-        if (item.Idiomas) {
-            if (idiomas['Inglés']) {
-                idiomas['Inglés']++
-            } else {
-                idiomas['Inglés'] = 1
-            }
-        } else {
-            if (idiomas['Español']) {
-                idiomas['Español']++
-            } else {
-                idiomas['Español'] = 1
-            }
-        }
-    })
-    return {
-        profesiones,
-        tecnologias,
-        campos,
-        modalidades,
-        salaryRanges,
-        experiencias,
-        paises,
-        empleadores,
-        idiomas
     }
-}

@@ -40,7 +40,7 @@ export default function Charts() {
             <MyBarChart name={"Profesiones"} data={getSortedSliced(data.profesiones)}/>
             <MyBarChart name={"Tecnologias"} data={getSortedSliced(data.tecnologias)}/>
             <MyBarChart name={"Campos"} data={getSortedSliced(data.campos)}/>
-            <MyBarChart name={"Modalidades"} data={getSortedSliced(data.modalidades)}/>
+            <MyPieChart name={"Modalidades"} data={getSortedSliced(data.modalidades)}/>
             <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"}
                         footerText={`Rango promedio de salarios: ${getAverageSalaryRange(data.salaryRanges)}`}
                         data={getSortedSliced(data.salaryRanges)}/>
