@@ -3,16 +3,16 @@ import More from "@/app/components/More";
 import {getSortedSliced} from "@/lib/utils";
 import {useState} from "react";
 import {Search} from "lucide-react";
-import {dataEnum} from "@/app/components/Personalizado";
+import {DataEnum} from "@/app/components/Personalizado";
 
 type Props = {
     title: string
     filter: [string, number][];
     setFilter: (value: (((prevState: [string, number][]) => [string, number][]) | [string, number][])) => void;
     data: Record<string, number>;
-    mainCampo: dataEnum
-    campo: dataEnum
-    setMainCampo: React.Dispatch<React.SetStateAction<dataEnum>>
+    mainCampo: DataEnum
+    campo: DataEnum
+    setMainCampo: React.Dispatch<React.SetStateAction<DataEnum>>
 }
 
 export default function SectionGeneral({
