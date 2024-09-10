@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MyHome() {
   return (
-        <main className={'h-svh flex lg:flex-row flex-col justify-around items-center mt-20'}>
+        <main className={'h-svh flex lg:flex-row flex-col justify-around items-center mt-20 lg:mt-0'}>
             <div className={'flex flex-col space-y-5 -translate-y-16 lg:w-1/3 w-full p-5'}>
                 <h1 className={'font-bold text-3xl'}>
                     Infórmate
