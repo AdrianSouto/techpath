@@ -37,18 +37,18 @@ export default function Charts() {
 
     return (
         <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10'}>
-            <MyBarChart name={"Profesiones"} data={getSortedSliced(data.profesiones)}/>
-            <MyBarChart name={"Tecnologias"} data={getSortedSliced(data.tecnologias)}/>
-            <MyBarChart name={"Campos"} data={getSortedSliced(data.campos)}/>
-            <MyPieChart name={"Modalidades"} data={getSortedSliced(data.modalidades)}/>
-            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios mas comunes"}
+            <MyBarChart name={"Profesiones"} description={'Profesiones más solicitadas'} data={getSortedSliced(data.profesiones)}/>
+            <MyBarChart name={"Tecnologías"} description={'Tecnologias más demandadas'} data={getSortedSliced(data.tecnologias)}/>
+            <MyBarChart name={"Campos más requeridos"} data={getSortedSliced(data.campos)}/>
+            <MyPieChart name={"Modalidades más solicitadas"} data={getSortedSliced(data.modalidades)}/>
+            <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios más comunes"}
                         footerText={`Rango promedio de salarios: ${getAverageSalaryRange(data.salaryRanges)}`}
                         data={getSortedSliced(data.salaryRanges)}/>
-            <MyBarChart name={"Experiencia"} footerText={`El promedio de experiencia solicitado es: ${getAverageGeneral(data.experiencias)}`}
+            <MyBarChart name={"Experiencia"} description={"Años de experiecia más solcitados"} footerText={`El promedio de experiencia solicitado es: ${getAverageGeneral(data.experiencias)}`}
                         data={getSortedSliced(data.experiencias)}/>
-            <MyBarChart name={"Paises"} data={getSortedSliced(data.paises)}/>
-            <MyBarChart name={"Empleadores"} data={getSortedSliced(data.empleadores)}/>
-            <MyPieChart data={Object.entries(data.idiomas)} name={'Idiomas'}/>
+            <MyBarChart name={"Paises"} description={'Paises que más solicitan'} data={getSortedSliced(data.paises)}/>
+            <MyBarChart name={"Empleadores"} description={'Empresas que más solicitan'} data={getSortedSliced(data.empleadores)}/>
+            <MyPieChart data={Object.entries(data.idiomas)} description={'idiomas más demandados'} name={'idiomas'}/>
         </div>
     )
 }

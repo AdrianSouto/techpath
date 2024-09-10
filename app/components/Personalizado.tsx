@@ -65,7 +65,6 @@ export default function Personalizado({data}: Props) {
     useEffect(() => {
 
             filterGeneral.forEach(([mainKey,], mainIndex) => {
-                const modalidades: Record<string, number> = {}
                 const salaryRanges: Record<string, number> = {}
                 const experiencias: Record<string, number> = {}
                 const paises: Record<string, number> = {}
