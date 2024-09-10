@@ -12,7 +12,7 @@ export default function MyHome() {
                     Este sitio tiene el objetivo de informar sobre las <span className={'text-blue-500'}>ofertas laborales</span> en el <span className={'text-blue-500'}>sector tecnológico</span> en Cuba
                 </p>
             </div>
-            <div className={'lg:w-1/3 w-1/2 flex justify-center items-center'}>
+            <div className={'lg:w-1/3 w-2/3 flex justify-center items-center'}>
                 <Image src={laptopImage} alt={'laptop'} width={400} height={400}/>
             </div>
             <div className={'flex flex-col space-y-5 translate-y-16 lg:w-1/3 w-full p-5'}>
