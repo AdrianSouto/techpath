@@ -22,9 +22,9 @@ export default function DataShow({title, subtitle, description, data, chartType 
     return (
         <section>
 
-            <div className={'flex'}>
-                <div className={'flex flex-col w-1/2 '}>
-                    <div className={'flex flex-col w-2/3 text-pretty'}>
+            <div className={'flex lg:flex-row flex-col'}>
+                <div className={'flex flex-col lg:w-1/2 w-full'}>
+                    <div className={'flex flex-col lg:w-2/3 w-full text-pretty'}>
                         <h1 className={'font-bold text-3xl'}>{title} <span
                             className={'text-tuatara-500'}>{subtitle}</span>
                         </h1>
@@ -38,7 +38,7 @@ export default function DataShow({title, subtitle, description, data, chartType 
                                 sortedProfesiones.slice(0, 3).map(([name, cantidad], index) => {
                                     return (
                                         <div key={index}
-                                             className={'flex justify-between items-center w-1/2 rounded-lg py-2 px-4 bg-white shadow'}>
+                                             className={'flex justify-between items-center w-2/3 lg:w-1/2 rounded-lg py-2 px-4 bg-white shadow'}>
                                             <h1 className={'font-extrabold'}>{index + 1}</h1>
                                             <h2 className={'font-bold'}>{name}</h2>
                                             <span
@@ -54,7 +54,7 @@ export default function DataShow({title, subtitle, description, data, chartType 
                         </div>}
                 </div>
                 {showMore ||
-                    <div className={'w-1/2'}>
+                    <div className={'lg:w-1/2 w-full lg:mt-0 mt-10'}>
                         {
                             chartType === 'bar' &&
                             (<MyBarChart name={title} description={title + " " + subtitle}
