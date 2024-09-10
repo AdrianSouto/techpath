@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {makeData} from "@/lib/procesaData";
 import * as React from "react";
 import DataShow from "@/app/components/DataShow";
+import Personalizado from "@/app/components/Personalizado";
 
 export default function Main() {
     const [data, setData] = useState({
@@ -53,7 +54,7 @@ export default function Main() {
                       description={"La experiencia es un factor muy importante en el sector tecnológico, como podemos observar la mayoría de las ofertas requieren entre 2 y 5 años de experiencia"}
                       data={data.experiencias}/>
 
-
+            <Personalizado data={data} />
         </div>
 
     );

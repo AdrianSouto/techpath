@@ -5,6 +5,11 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
+
+export function mySort(array: [string, number][]) {
+    return array.sort(([, a], [, b]) => b - a)
+}
+
 export function getAverageSalaryRange(salaryRanges: Record<string, number>): string {
     let totalSalary = 0;
     let totalCount = 0;

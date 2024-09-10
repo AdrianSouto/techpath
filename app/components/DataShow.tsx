@@ -3,6 +3,7 @@ import * as React from "react";
 import {useState} from "react";
 import More from "@/app/components/More";
 import MyPieChart from "@/app/charts/components/MyPieChart";
+import {mySort} from "@/lib/utils";
 
 
 type Props = {
@@ -20,7 +21,6 @@ export default function DataShow({title, subtitle, description, data, chartType 
     const [filter , setFilter] = useState<[string, number][]>([])
     return (
         <section>
-
 
             <div className={'flex'}>
                 <div className={'flex flex-col w-1/2 '}>
@@ -58,12 +58,12 @@ export default function DataShow({title, subtitle, description, data, chartType 
                         {
                             chartType === 'bar' &&
                             (<MyBarChart name={title} description={title + " " + subtitle}
-                                        data={filter.length !== 0? filter : sortedProfesiones.slice(0, 10)}/>)
+                                        data={filter.length !== 0? mySort(filter)  : sortedProfesiones.slice(0, 10)}/>)
                         }
                         {
                             chartType === 'pie' &&
                             (<MyPieChart name={title} description={title + " " + subtitle}
-                                        data={filter.length !== 0? filter : sortedProfesiones.slice(0, 10)}/>
+                                        data={filter.length !== 0? mySort(filter) : sortedProfesiones.slice(0, 10)}/>
                             )
                         }
                     </div>

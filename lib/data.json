@@ -306,7 +306,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       ".NET Core"
     ],
     "Salario": null,
@@ -317,7 +317,7 @@
     ],
     "Empleador": null,
     "Pais": null,
-    "Anuncio": "Nos gustaría incorporar en nuestro equipo un/a Programador/a, que pueda aportar al menos 2 años de experiencia demostrable en ReactJS y .net Core..."
+    "Anuncio": "Nos gustaría incorporar en nuestro equipo un/a Programador/a, que pueda aportar al menos 2 años de experiencia demostrable en React y .net Core..."
   },
   {
     "Profesion": "Programador",
@@ -1273,7 +1273,7 @@
     "Profesion": "Programador",
     "Tecnologias": [
       ".Net Core",
-      "ReactJS"
+      "React"
     ],
     "Salario": "Salario competitivo",
     "Experiencia": null,
@@ -1281,7 +1281,7 @@
     "Idiomas": null,
     "Empleador": null,
     "Pais": null,
-    "Anuncio": "Buscamos desarrolladores de software en .Net Core y ReactJS para trabajo a tiempo completo y por tiempo indefinido."
+    "Anuncio": "Buscamos desarrolladores de software en .Net Core y React para trabajo a tiempo completo y por tiempo indefinido."
   },
   {
     "Profesion": "Programador",
@@ -1688,7 +1688,7 @@
       "Embedded Software Engineer",
       "Java",
       "NodeJS",
-      "ReactJS",
+      "React",
       "React Native",
       "Technical Leader",
       "Solution Architect",
@@ -3319,15 +3319,15 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "Reactjs"
+      "React"
     ],
     "Salario": null,
-    "Experiencia": "Experiencia demostrable en Reactjs",
+    "Experiencia": "Experiencia demostrable en React",
     "Modalidad de Trabajo": null,
     "Idiomas": null,
     "Empleador": null,
     "Pais": null,
-    "Anuncio": "Se requiere de un dev con experiencia demostrable en Reactjs."
+    "Anuncio": "Se requiere de un dev con experiencia demostrable en React."
   },
   {
     "Profesion": "Programador",
@@ -3708,7 +3708,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "Reactjs",
+      "React",
       "JavaScript",
       "Django"
     ],
@@ -3717,7 +3717,7 @@
     "Modalidad de Trabajo": null,
     "Idiomas": null,
     "Empleador": null,
-    "Anuncio": "Requerimos un ingeniero de interfaz de usuario de interfaz con excelentes habilidades en Reactjs y javascript. La experiencia de backend en framworks de desarrollo web como Django es una ventaja."
+    "Anuncio": "Requerimos un ingeniero de interfaz de usuario de interfaz con excelentes habilidades en React y javascript. La experiencia de backend en framworks de desarrollo web como Django es una ventaja."
   },
   {
     "Profesion": "Programador",
@@ -3932,7 +3932,7 @@
     "Tecnologias": [
       ".Net",
       "Java",
-      "ReactJS",
+      "React",
       "Vue",
       "Flutter",
       "React Native",
@@ -3972,14 +3972,14 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS"
+      "React"
     ],
     "Salario": null,
     "Experiencia": "Medio-Avanzado",
     "Modalidad de Trabajo": null,
     "Idiomas": null,
     "Empleador": "Empresa extranjera",
-    "Anuncio": "Se necesita frontend developer para proyecto con empresa extranjera.Requisitos: -Conocimiento medio-avanzado de ReactJS-Experiencia de trabajo en equipoLos pagos serán en USD. Los interesados pueden enviar su CV al privado."
+    "Anuncio": "Se necesita frontend developer para proyecto con empresa extranjera.Requisitos: -Conocimiento medio-avanzado de React-Experiencia de trabajo en equipoLos pagos serán en USD. Los interesados pueden enviar su CV al privado."
   },
   {
     "Profesion": "Programador",
@@ -5049,7 +5049,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "Next.js",
       "NodeJS",
       "Express",
@@ -5063,7 +5063,7 @@
     "Idiomas": null,
     "Empleador": null,
     "Pais": null,
-    "Anuncio": "Hola grupo, se necesita:1-Frontend Developer:-Conocimiento avanzado de ReactJS-Conocimiento avanzado de Next.js-Experiencia de trabajo en equipo2-Backend Developer:-Conocimiento avanzado de NodeJS-Conocimiento avanzado de Express-Experiencia con MongoDB-Experiencia de trabajo en equipo3-IOs Mobile Developer:-Conocimiento medio-avanzado de Swift-Experiencia de trabajo en equipo4-Android Mobile Developer:-Conocimiento medio-avanzado de Kotlin -Experiencia de trabajo en equipoLos pagos serán en USD..."
+    "Anuncio": "Hola grupo, se necesita:1-Frontend Developer:-Conocimiento avanzado de React-Conocimiento avanzado de Next.js-Experiencia de trabajo en equipo2-Backend Developer:-Conocimiento avanzado de NodeJS-Conocimiento avanzado de Express-Experiencia con MongoDB-Experiencia de trabajo en equipo3-IOs Mobile Developer:-Conocimiento medio-avanzado de Swift-Experiencia de trabajo en equipo4-Android Mobile Developer:-Conocimiento medio-avanzado de Kotlin -Experiencia de trabajo en equipoLos pagos serán en USD..."
   },
   {
     "Profesion": "Programador",
@@ -5602,7 +5602,7 @@
       "Node",
       "Python",
       "Mongo DB",
-      "ReactJS",
+      "React",
       "Django",
       "Docker",
       "Redis",
@@ -5627,7 +5627,7 @@
       "Node",
       "Python",
       "Mongo DB",
-      "ReactJS",
+      "React",
       "Django",
       "Docker",
       "Redis",
@@ -8008,7 +8008,7 @@
       "Sql Server",
       "Modelo-Vista-Controlador",
       "Boostrap Admin Template 3",
-      "Reactjs"
+      "React"
     ],
     "Salario": null,
     "Experiencia": null,
@@ -8222,7 +8222,7 @@
     "Modalidad de Trabajo": "Remoto",
     "Idiomas": null,
     "Empleador": null,
-    "Anuncio": "\nHola developers! Empresa chilena en busca de desarrollador con experiencia demostrable en Php + Javascript para puesto de trabajo full remoto integrado a un equipo de trabajo ágil multidisciplinario. Necesario:Buena comunicación y trabajo en equipo.Conocimiento semi-senior o superior en php.Conocimiento semi-senior o superior en javascript, css y html.Conocimiento y manejo de Bases de datos MySQL avanzado. No necesario, Plus:Conocimiento Reactjs o React Native.Inglés intermedio.Scrum.Envía tu CV a fcollado@dl.cl\n",
+    "Anuncio": "\nHola developers! Empresa chilena en busca de desarrollador con experiencia demostrable en Php + Javascript para puesto de trabajo full remoto integrado a un equipo de trabajo ágil multidisciplinario. Necesario:Buena comunicación y trabajo en equipo.Conocimiento semi-senior o superior en php.Conocimiento semi-senior o superior en javascript, css y html.Conocimiento y manejo de Bases de datos MySQL avanzado. No necesario, Plus:Conocimiento React o React Native.Inglés intermedio.Scrum.Envía tu CV a fcollado@dl.cl\n",
     "Pais": "Chile"
   },
   {
@@ -8716,7 +8716,7 @@
     "Modalidad de Trabajo": "Remoto",
     "Idiomas": "Inglés",
     "Empleador": null,
-    "Anuncio": "\nHola,Empresa con sede en Europa busca desarrollador con conocimientos de VueJS para un proyecto de no menos de 4 meses de duración.Habilidades requeridas:- Experiencia de mínimo 3 años con Vuejs (se solicitará códigos de ejemplo desarrollados).- Manejo de estados con Vuex o Pinia.- Conocimientos de Vite.- Conocimientos de Vue 3 y composition API- Uso de git.Se valorará conocimientos en:- Nextjs, Reactjs y/o Nuxtjs.- Maquetación pixelperfect con uso de flexbox o grid.Más detalles:- Full remote.- Trabajo por proyectos con posibilidad de incorporación a la empresa.- Pago mediante tarjeta MLC.- Horario Europeo. Es decir, de 01:00AM a 09:00AM de Cuba.Salario: 1000$/mes.Imprescindible, posibilidad de disponer de internet de calidad las 8 horas al día de la jornada laboral, para poder realizar meetings.Abstenerse programadores que no tengan suficiente conocimientos en Vuejs.Interesados, contactar por privado mandando el CV y enviando código de referencia donde se pueda comprobar la calidad del mismo.Muchas gracias.\n ",
+    "Anuncio": "\nHola,Empresa con sede en Europa busca desarrollador con conocimientos de VueJS para un proyecto de no menos de 4 meses de duración.Habilidades requeridas:- Experiencia de mínimo 3 años con Vuejs (se solicitará códigos de ejemplo desarrollados).- Manejo de estados con Vuex o Pinia.- Conocimientos de Vite.- Conocimientos de Vue 3 y composition API- Uso de git.Se valorará conocimientos en:- Nextjs, React y/o Nuxtjs.- Maquetación pixelperfect con uso de flexbox o grid.Más detalles:- Full remote.- Trabajo por proyectos con posibilidad de incorporación a la empresa.- Pago mediante tarjeta MLC.- Horario Europeo. Es decir, de 01:00AM a 09:00AM de Cuba.Salario: 1000$/mes.Imprescindible, posibilidad de disponer de internet de calidad las 8 horas al día de la jornada laboral, para poder realizar meetings.Abstenerse programadores que no tengan suficiente conocimientos en Vuejs.Interesados, contactar por privado mandando el CV y enviando código de referencia donde se pueda comprobar la calidad del mismo.Muchas gracias.\n ",
     "Pais": "Alemania"
   },
   {
@@ -8892,7 +8892,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "Angular"
     ],
@@ -8901,7 +8901,7 @@
     "Modalidad de Trabajo": "Remoto",
     "Idiomas": null,
     "Empleador": "Fintech",
-    "Anuncio": "\nEmpresa desarrolladora de aplicaciones fintech con sede México busca desarrollador frontend en Angular, ReactJS o NodeJS:Requisitos:- Experiencia y conocimientos demostrables en Angular 6 (o plus), ReactJS o NodeJS - Indispensable.- Buena conexión de internet.- No es necesario Ingles.- Capacidad de trabajo en equipo.- Capacidad de cumplir con tiempos y sprints.Ofrecemos:- Trabajo 100% remoto.- Buen ambiente laboral.- Salario mínimo 1000 USD.- Pagos de inmediato o por adelantado en MLC o en USDT.Interesados escribirme al privado\n ",
+    "Anuncio": "\nEmpresa desarrolladora de aplicaciones fintech con sede México busca desarrollador frontend en Angular, React o NodeJS:Requisitos:- Experiencia y conocimientos demostrables en Angular 6 (o plus), React o NodeJS - Indispensable.- Buena conexión de internet.- No es necesario Ingles.- Capacidad de trabajo en equipo.- Capacidad de cumplir con tiempos y sprints.Ofrecemos:- Trabajo 100% remoto.- Buen ambiente laboral.- Salario mínimo 1000 USD.- Pagos de inmediato o por adelantado en MLC o en USDT.Interesados escribirme al privado\n ",
     "Pais": "Mexico"
   },
   {
@@ -8920,7 +8920,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "NextJS"
     ],
@@ -8996,7 +8996,7 @@
       "Wordpress",
       "Laravel",
       "MySQL",
-      "ReactJS"
+      "React"
     ],
     "Salario": 900,
     "Experiencia": null,
@@ -9009,7 +9009,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "Python",
       "Django"
@@ -9078,7 +9078,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS"
     ],
     "Salario": null,
@@ -9086,7 +9086,7 @@
     "Modalidad de Trabajo": "Remoto",
     "Idiomas": null,
     "Empleador": null,
-    "Anuncio": "\nBuenos dias!!!Me encuentro en la búsqueda del siguiente perfil1- Experiencia demostrable en ReactJS y NextJs minimo 3 años2- Excelentes habilidades para maquetar.3- Buena autogestión.4- Buena conexión a internet para reuniones.Condiciones:1- Contrato a tiempo indefinido.2- 15 días de vacaciones pagadas al año y feriados de Cuba.3- Buen salario en mlc.4- Totalmente remoto.5- Ambiente laboral espectacular.6- Ayuda economica para conexión a internet.7- Bono de 20 mlc para comprar comida y bebida en las actividades mensuales que realizamos .Interesados enviar CV al privado.\n ",
+    "Anuncio": "\nBuenos dias!!!Me encuentro en la búsqueda del siguiente perfil1- Experiencia demostrable en React y NextJs minimo 3 años2- Excelentes habilidades para maquetar.3- Buena autogestión.4- Buena conexión a internet para reuniones.Condiciones:1- Contrato a tiempo indefinido.2- 15 días de vacaciones pagadas al año y feriados de Cuba.3- Buen salario en mlc.4- Totalmente remoto.5- Ambiente laboral espectacular.6- Ayuda economica para conexión a internet.7- Bono de 20 mlc para comprar comida y bebida en las actividades mensuales que realizamos .Interesados enviar CV al privado.\n ",
     "Pais": "Cuba"
   },
   {
@@ -9265,7 +9265,7 @@
   {
     "Profesion": "",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "NextJS"
     ],
@@ -9428,7 +9428,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS"
     ],
     "Salario": null,
@@ -9739,7 +9739,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "Typescript"
     ],
@@ -10510,7 +10510,7 @@
     "Tecnologias": [
       "Typescript",
       "nodejs",
-      "reactjs",
+      "React",
       "netjs",
       "redux",
       "taildwind"
@@ -10521,7 +10521,7 @@
     "Idiomas": null,
     "Empleador": "CMG3",
     "Pais": "Cuba",
-    "Anuncio": "Buenas tardes, para un importante cliente internacional nos encontramos en búsqueda de un desarrollador fullstack senior con experiencia de al menos 5 años trabajando con las siguientes Tecnologias: Typescript, nodejs, reactjs, netjs, redux, taildwind. Interesados enviar cv indicando disponibilidad al correo omar.caro@cmg3.cl. El trabajo es a tiempo completo, 6 meses inicialmente con posibilidad de extensión. Por favor solo enviar cv quienes cumplan con todos los requisitos. Se realizará prueba técnica."
+    "Anuncio": "Buenas tardes, para un importante cliente internacional nos encontramos en búsqueda de un desarrollador fullstack senior con experiencia de al menos 5 años trabajando con las siguientes Tecnologias: Typescript, nodejs, React, netjs, redux, taildwind. Interesados enviar cv indicando disponibilidad al correo omar.caro@cmg3.cl. El trabajo es a tiempo completo, 6 meses inicialmente con posibilidad de extensión. Por favor solo enviar cv quienes cumplan con todos los requisitos. Se realizará prueba técnica."
   },
   {
     "Profesion": "Programador",
@@ -11537,7 +11537,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "Redux",
       "Git"
     ],
@@ -11547,7 +11547,7 @@
     "Idiomas": "Inglés",
     "Empleador": null,
     "Pais": "Cuba",
-    "Anuncio": "Empresa con sede en Europa busca desarrollador con conocimientos avanzados de ReactJS. Habilidades requeridas: - Experiencia de mínimo 3 años con Reactjs (se solicitará códigos de ejemplo desarrollados). - Conocimientos de Redux. - Uso de git. - Nivel mínimo B2 en inglés. - Maquetación pixelperfect con uso de flexbox o grid. Más detalles: - Full remote. - Pago mediante tarjeta MLC, Tropipay, PayPal o Western Union. Imprescindible, posibilidad de disponer de internet de calidad las 8 horas al día de la jornada laboral, para poder realizar meetings. Abstenerse programadores que no tengan suficiente conocimientos en Reacjs. Interesados, contactar por privado mandando el CV y enviando código de referencia donde se pueda comprobar la calidad del mismo. Muchas gracias."
+    "Anuncio": "Empresa con sede en Europa busca desarrollador con conocimientos avanzados de React. Habilidades requeridas: - Experiencia de mínimo 3 años con React (se solicitará códigos de ejemplo desarrollados). - Conocimientos de Redux. - Uso de git. - Nivel mínimo B2 en inglés. - Maquetación pixelperfect con uso de flexbox o grid. Más detalles: - Full remote. - Pago mediante tarjeta MLC, Tropipay, PayPal o Western Union. Imprescindible, posibilidad de disponer de internet de calidad las 8 horas al día de la jornada laboral, para poder realizar meetings. Abstenerse programadores que no tengan suficiente conocimientos en Reacjs. Interesados, contactar por privado mandando el CV y enviando código de referencia donde se pueda comprobar la calidad del mismo. Muchas gracias."
   },
   {
     "Profesion": "Programador",
@@ -11918,7 +11918,7 @@
       "NestJs",
       "Graphql",
       "Java SpringBoot",
-      "ReactJS",
+      "React",
       "Angular"
     ],
     "Salario": null,
@@ -11927,7 +11927,7 @@
     "Idiomas": null,
     "Empleador": "Pyxel Solutions",
     "Pais": "Cuba",
-    "Anuncio": "Somos la Mipyme Pyxel Solutions un equipo multidisciplinario, enfocado en resolver los más variados problemas y necesidades en el campo de la informática, la comunicación y diseño.\n\n¿ Qué buscamos ? \n\nCompetencias laborales \n- Desarrollador Senior Odoo \n - Desarrollador Senior NestJs + Graphql\n- Desarrollador Senior Java SpringBoot \n- Desarrollador Senior Frontend ReactJS, Angular\n\n¿ Qué ofrecemos ? \n - Un entorno de trabajo remoto, flexible y orientado a resultados.\n- Salario competitivo. \n- Participación en proyectos innovadores y desafiantes .\n- Un gran equipo de trabajo colaborativo. \n\n ¡ No dudes en escribirnos!\n\nEnvia tu CV a :\n\n[email protected]\n[email protected]"
+    "Anuncio": "Somos la Mipyme Pyxel Solutions un equipo multidisciplinario, enfocado en resolver los más variados problemas y necesidades en el campo de la informática, la comunicación y diseño.\n\n¿ Qué buscamos ? \n\nCompetencias laborales \n- Desarrollador Senior Odoo \n - Desarrollador Senior NestJs + Graphql\n- Desarrollador Senior Java SpringBoot \n- Desarrollador Senior Frontend React, Angular\n\n¿ Qué ofrecemos ? \n - Un entorno de trabajo remoto, flexible y orientado a resultados.\n- Salario competitivo. \n- Participación en proyectos innovadores y desafiantes .\n- Un gran equipo de trabajo colaborativo. \n\n ¡ No dudes en escribirnos!\n\nEnvia tu CV a :\n\n[email protected]\n[email protected]"
   },
   {
     "Profesion": "Programador",
@@ -12504,7 +12504,7 @@
     "Idiomas": null,
     "Empleador": null,
     "Pais": "Cuba",
-    "Anuncio": "Buscamos ingenieros senior con experiencia en React Native con disponibilidad para proyecto con duración de 1 año, modalidad remota y horario flexible, con las siguientes habilidades requeridas:\n\n✔️Dominio de React Native y familiaridad con el framework Expo.\n✔️Experiencia con PostgresSQL y gestión de bases de datos, especialmente en entornos de nube como Supabase.\n✔️Conocimiento del protocolo MQTT y experiencia con comunicación de datos en tiempo real entre aplicaciones móviles y dispositivos IoT.\n✔️Gran conocimiento de las características específicas de las plataformas Android e iOS, con capacidad para abordar problemas de compatibilidad multiplataforma.\n\n👉También contamos con otra oportunidad laboral para desarrolladores senior con experiencia en ReactJS y NextJS. \nEscribir a [email protected] adjuntando CV en inglés y pdf. ¡Ponte en contacto!🙌"
+    "Anuncio": "Buscamos ingenieros senior con experiencia en React Native con disponibilidad para proyecto con duración de 1 año, modalidad remota y horario flexible, con las siguientes habilidades requeridas:\n\n✔️Dominio de React Native y familiaridad con el framework Expo.\n✔️Experiencia con PostgresSQL y gestión de bases de datos, especialmente en entornos de nube como Supabase.\n✔️Conocimiento del protocolo MQTT y experiencia con comunicación de datos en tiempo real entre aplicaciones móviles y dispositivos IoT.\n✔️Gran conocimiento de las características específicas de las plataformas Android e iOS, con capacidad para abordar problemas de compatibilidad multiplataforma.\n\n👉También contamos con otra oportunidad laboral para desarrolladores senior con experiencia en React y NextJS. \nEscribir a [email protected] adjuntando CV en inglés y pdf. ¡Ponte en contacto!🙌"
   },
   {
     "Profesion": "Programador",
@@ -12763,7 +12763,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJS",
+      "React",
       "NodeJS",
       "Redux",
       "React Hooks",
@@ -12777,7 +12777,7 @@
     "Idiomas": null,
     "Empleador": "QA BIT",
     "Pais": null,
-    "Anuncio": "QA BIT busca un developer qué cumpla con las siguientes características.\n\n- Experiencia probada trabajando como fullstack en ReactJS, NodeJS, Redux, React Hooks.\n- Experiencia en SASS y CSS.\n- Siéntete cómodo trabajando con APIs RESTful.\n- Sistema de control de versiones: Git.\n- Sensación por las pruebas, la integración continua y la automatización.\n- Sentirse cómodo trabajando en un equipo SCRUM.\n- Buenas habilidades de comunicación para coordinar el trabajo front-to-back.\n- Experiencia con funciones de AWS o Cloud.\n\nPrueba durante un mes, si funciona se alarga la relación\n\nSalario entre 1200 y 1500, dependiendo de la experiencia del candidato"
+    "Anuncio": "QA BIT busca un developer qué cumpla con las siguientes características.\n\n- Experiencia probada trabajando como fullstack en React, NodeJS, Redux, React Hooks.\n- Experiencia en SASS y CSS.\n- Siéntete cómodo trabajando con APIs RESTful.\n- Sistema de control de versiones: Git.\n- Sensación por las pruebas, la integración continua y la automatización.\n- Sentirse cómodo trabajando en un equipo SCRUM.\n- Buenas habilidades de comunicación para coordinar el trabajo front-to-back.\n- Experiencia con funciones de AWS o Cloud.\n\nPrueba durante un mes, si funciona se alarga la relación\n\nSalario entre 1200 y 1500, dependiendo de la experiencia del candidato"
   },
   {
     "Profesion": "Programador",
@@ -13981,7 +13981,7 @@
   {
     "Profesion": "Programador",
     "Tecnologias": [
-      "ReactJs",
+      "React",
       "NextJs",
       "Node.js",
       "Nestjs",
@@ -13994,7 +13994,7 @@
     "Idiomas": "Inglés",
     "Empleador": "Contapp Digital",
     "Pais": "Cuba",
-    "Anuncio": "Estamos en búsqueda de un Full Stack Developer de nivel intermedio o superior para unirte a nuestro equipo en Contapp Digital. \n\nNos encontramos en un proceso de lanzamiento con una visión ambiciosa y necesitamos a alguien con habilidades para la resolución de problemas y pensamiento ágil para impulsar nuestro proyecto. Esta es una oportunidad para crecer junto a la empresa.\n\nRequisitos esenciales para el puesto:\n\n1. Dominio de ReactJs y experiencia comprobada en el uso de NextJs.\n2. Experiencia en el diseño y desarrollo de arquitecturas de Microservicios.\n3. Familiaridad con Nestjs y la creación de aplicaciones Node.js.\n4. Experiencia sólida en el manejo de bases de datos SQL y NoSQL.\n5. Nivel básico de inglés para una comunicación efectiva en un entorno global.\n6. Habilidad sobresaliente para la comunicación y la colaboración con otros miembros del equipo.\n7. Capacidad demostrada para resolver problemas de manera eficaz y presentar soluciones innovadoras.\n\nSeria genial si:\n1. Posees experiencia utlizando arquitectura hexagonal\n2. Tienes experiencia en procesamiento de pagos con Stripe\n\nCondiciones y beneficios:\n- Modalidad de trabajo: Híbrido, 8 horas diarias (flexible)\n- Es esencial contar con una buena conexión a internet.\n- Salario competitivo\n- Oportunidad para crecer junto a la empresa\n\nSi cumples con estos requisitos y estás interesado en unirte a nuestro equipo en Contapp Digital, por favor envía tu CV y antecedentes acorde a la oferta a través del email [email protected]"
+    "Anuncio": "Estamos en búsqueda de un Full Stack Developer de nivel intermedio o superior para unirte a nuestro equipo en Contapp Digital. \n\nNos encontramos en un proceso de lanzamiento con una visión ambiciosa y necesitamos a alguien con habilidades para la resolución de problemas y pensamiento ágil para impulsar nuestro proyecto. Esta es una oportunidad para crecer junto a la empresa.\n\nRequisitos esenciales para el puesto:\n\n1. Dominio de React y experiencia comprobada en el uso de NextJs.\n2. Experiencia en el diseño y desarrollo de arquitecturas de Microservicios.\n3. Familiaridad con Nestjs y la creación de aplicaciones Node.js.\n4. Experiencia sólida en el manejo de bases de datos SQL y NoSQL.\n5. Nivel básico de inglés para una comunicación efectiva en un entorno global.\n6. Habilidad sobresaliente para la comunicación y la colaboración con otros miembros del equipo.\n7. Capacidad demostrada para resolver problemas de manera eficaz y presentar soluciones innovadoras.\n\nSeria genial si:\n1. Posees experiencia utlizando arquitectura hexagonal\n2. Tienes experiencia en procesamiento de pagos con Stripe\n\nCondiciones y beneficios:\n- Modalidad de trabajo: Híbrido, 8 horas diarias (flexible)\n- Es esencial contar con una buena conexión a internet.\n- Salario competitivo\n- Oportunidad para crecer junto a la empresa\n\nSi cumples con estos requisitos y estás interesado en unirte a nuestro equipo en Contapp Digital, por favor envía tu CV y antecedentes acorde a la oferta a través del email [email protected]"
   },
   {
     "Profesion": "Programador",
@@ -15017,7 +15017,7 @@
     "Tecnologias": [
       "ASP.NET Core",
       "Entity Framework Core",
-      "ReactJS",
+      "React",
       "Typescript",
       "SASS",
       "MySQL",
@@ -15030,7 +15030,7 @@
     "Idiomas": null,
     "Empleador": null,
     "Pais": "España",
-    "Anuncio": "Organización con sede en Madrid, España necesita desarrollador web full stack para desarrollar una nueva aplicación. Tanto la organización como el producto están en sus etapas iniciales por lo que necesitamos personas comprometidas y con deseo de hacer realidad la idea desde sus inicios. \n\nLas Tecnologias y habilidades que deberás conocer son:\n+ creación de API REST con ASP.NET Core (.net6.0)\n+ administración de bases de datos usando Entity Framework Core (>= v7)\n+ creación de aplicaciones web usando ReactJS con Typescript, functional components, react hooks y SASS\n+ trabajo con git en equipo de varias personas\n\nSerán valoradas como positivas las siguientes Tecnologias y habilidades:\n+ seniority y experiencia demostrable\n+ Patrón CQRS\n+ OData\n+ MySQL\n+ Wordpress\n+ Mantine para la UI\n+ Nociones de docker y docker compose\n\nLa oferta es para desarrolladores que quieran trabajar remoto desde Cuba para España, a tiempo completo (40h semanales). Las horas serán administradas por el candidato, aunque debe garantizar disponibilidad via mensajes o video llamadas en el rango de horas 8am-2pm (hora de Cuba) puntualmente. El salario que se acuerde, será pagado en euros mensualmente a traves de transferencia bancarias a una cuenta personal del candidato (debe permitir MLC)\n\nPonte en contacto y envía tu CV, ten una pequeña entrevista con nosotros (solo audio) para conocerte mejor y realiza un pequeño test de código en tu propio tiempo para que demuestres tus habilidades."
+    "Anuncio": "Organización con sede en Madrid, España necesita desarrollador web full stack para desarrollar una nueva aplicación. Tanto la organización como el producto están en sus etapas iniciales por lo que necesitamos personas comprometidas y con deseo de hacer realidad la idea desde sus inicios. \n\nLas Tecnologias y habilidades que deberás conocer son:\n+ creación de API REST con ASP.NET Core (.net6.0)\n+ administración de bases de datos usando Entity Framework Core (>= v7)\n+ creación de aplicaciones web usando React con Typescript, functional components, react hooks y SASS\n+ trabajo con git en equipo de varias personas\n\nSerán valoradas como positivas las siguientes Tecnologias y habilidades:\n+ seniority y experiencia demostrable\n+ Patrón CQRS\n+ OData\n+ MySQL\n+ Wordpress\n+ Mantine para la UI\n+ Nociones de docker y docker compose\n\nLa oferta es para desarrolladores que quieran trabajar remoto desde Cuba para España, a tiempo completo (40h semanales). Las horas serán administradas por el candidato, aunque debe garantizar disponibilidad via mensajes o video llamadas en el rango de horas 8am-2pm (hora de Cuba) puntualmente. El salario que se acuerde, será pagado en euros mensualmente a traves de transferencia bancarias a una cuenta personal del candidato (debe permitir MLC)\n\nPonte en contacto y envía tu CV, ten una pequeña entrevista con nosotros (solo audio) para conocerte mejor y realiza un pequeño test de código en tu propio tiempo para que demuestres tus habilidades."
   },
   {
     "Profesion": "Programador",
