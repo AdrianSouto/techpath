@@ -24,7 +24,7 @@ export default function TopBar() {
                     <div className={`rounded-full h-0.5 w-${currentRoute === '/charts' ? 'full' : '0'} bg-blue-500 group-hover:w-full transition-all`}/>
                 </article>
             </div>
-            <div className={'flex space-x-5 items-center absolute end-12 top-6'}>
+            <div className={'space-x-5 items-center absolute end-12 top-6 hidden lg:flex'}>
                 <Image src={logo} alt={'logo'} width={30} height={30}/>
                 <h1 className={'text-2xl'}>techpath</h1>
             </div>

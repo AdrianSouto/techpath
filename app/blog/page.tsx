@@ -9,9 +9,9 @@ import Logo from "./assets/logo.jpg"
 
 export default function Page() {
     return (
-        <div className={'mt-20 p-10 text-pretty'}>
-            <div className={'flex space-x-20 '}>
-                <div className={'w-1/2'}>
+        <div className={'mt-20 p-5 justify-start lg:p-10 text-pretty'}>
+            <div className={'flex space-x-20 lg:flex-row flex-col'}>
+                <div className={'lg:w-1/2 w-full'}>
                     <h1 className="font-bold text-xl"> ¿Te apaciona el mundo de la computación? </h1>
                     <p className="mt-5">
                         Muchas son las personas que decidieron dedicar su vida al apasionante y desafiante
@@ -58,8 +58,8 @@ export default function Page() {
                 es una estafa.
             </p>
 
-            <div className={'flex space-x-20 mt-20'}>
-                <div className={'w-1/2'}>
+            <div className={'flex lg:flex-row flex-col space-x-20 mt-20'}>
+                <div className={'lg:w-1/2 w-full'}>
                     <h1 className="font-bold text-xl">Mientras te quedas pensando en esto, te muestro los cinco
                         lenguajes de programación mas usados del
                         mundo.</h1>
@@ -96,19 +96,23 @@ export default function Page() {
                 demostrable. Son demasiados búsquedas para distintos sitios.
             </p>
 
-            <div className={'flex space-x-20 mt-20'}>
-                <div className={'w-1/2'}>
+            <div className={'flex lg:flex-row flex-col space-x-20 mt-20'}>
+                <div className={'lg:w-1/2 w-full'}>
                     <h1 className="font-bold text-xl">Un poquito sobre nosotros</h1>
                     <p className="mt-5">
-                        Abrumado ya, sin ganas de continuar. Tomas tu teléfono celular y abres el Whatsapp. Revisando los
-                estados de tus amigos, notas que comenzaron
-                a trabajar en lugares muy buenos. Les escribes donde encontraron información, le explicas la idea que
-                tuviste y ellos te responden que tuvieron
-                la misma idea y encontraron un sitio web muy bueno que recopilaba todos esos datos que tu necesitabas.
-                Visitas rápidamente el sitio y ahora estás aquí
-                en el mejor sitio de infomación sobre el mercado laboral en Cuba, leyendo tu propia historia. Espero que
-                encuentres lo que estás buscando dentro de los analisis que realizamos
-            </p>
+                        Abrumado ya, sin ganas de continuar. Tomas tu teléfono celular y abres el Whatsapp. Revisando
+                        los
+                        estados de tus amigos, notas que comenzaron
+                        a trabajar en lugares muy buenos. Les escribes donde encontraron información, le explicas la
+                        idea que
+                        tuviste y ellos te responden que tuvieron
+                        la misma idea y encontraron un sitio web muy bueno que recopilaba todos esos datos que tu
+                        necesitabas.
+                        Visitas rápidamente el sitio y ahora estás aquí
+                        en el mejor sitio de infomación sobre el mercado laboral en Cuba, leyendo tu propia historia.
+                        Espero que
+                        encuentres lo que estás buscando dentro de los analisis que realizamos
+                    </p>
                 </div>
                 <Image src={Logo} alt={'TechPath'} className=" rounded-lg" width={300} height={100}/>
             </div>
