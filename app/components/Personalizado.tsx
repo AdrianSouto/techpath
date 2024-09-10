@@ -65,14 +65,12 @@ export default function Personalizado({data}: Props) {
     useEffect(() => {
 
             filterGeneral.forEach(([mainKey,], mainIndex) => {
-                const modalidades: Record<string, number> = {}
                 const salaryRanges: Record<string, number> = {}
                 const experiencias: Record<string, number> = {}
                 const paises: Record<string, number> = {}
                 const empleadores: Record<string, number> = {}
                 const idiomas: Record<string, number> = {}
                 let count = 0;
-                const anuncios = []
                 json.forEach((item: dataType) => {
                         const isOk: boolean[] = [false, false]
                         if (item.Profesion) {
@@ -182,10 +180,8 @@ export default function Personalizado({data}: Props) {
                         })
                         if (x) {
                             count++
-                            anuncios.push(item)
                         }
                         console.log(count)
-                        console.log(anuncios)
                         const temp = [...filterGeneral]
                         temp[mainIndex][1] = count;
                         setFilterGeneral(temp)
