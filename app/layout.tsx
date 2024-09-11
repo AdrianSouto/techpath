@@ -26,9 +26,10 @@ export default function RootLayout({
         <body
             className={`${monserrat.className} antialiased bg-tuatara-50 flex flex-col text-tuatara-950 pb-20`}
         >
-        <GoogleAnalytics gaId="'G-73PWJ3YLY6" />
+        <GoogleAnalytics gaId="G-WMBEV2KHNH" />
+        <GoogleAnalytics gaId="G-73PWJ3YLY6" />
         <TopBar/>
-        {/*G-WMBEV2KHNH*/}
+        {/*G-73PWJ3YLY6*/}
         {children}
         </body>
         </html>
