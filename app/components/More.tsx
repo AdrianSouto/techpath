@@ -5,7 +5,7 @@ import {useState} from "react";
 
 type Props = {
     setShowMore: React.Dispatch<React.SetStateAction<boolean>>;
-    data: Record<string, number>;
+    data: [string, number][];
     filter: [string, number][];
     setFilter: React.Dispatch<React.SetStateAction<[string, number][]>>;
 };

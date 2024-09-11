@@ -10,12 +10,11 @@ export function mySort(array: [string, number][]) {
     return array.sort(([, a], [, b]) => b - a)
 }
 
-export function getAverageSalaryRange(salaryRanges: Record<string, number>): string {
+export function getAverageSalaryRange(salaryRanges: [string, number][]): string {
     let totalSalary = 0;
     let totalCount = 0;
 
-    for (const range in salaryRanges) {
-        const count = salaryRanges[range];
+    for (const [range, count] of salaryRanges) {
         const match = range.match(/(\d+)-(\d+)/);
 
         if (match) {
@@ -35,22 +34,22 @@ export function getAverageSalaryRange(salaryRanges: Record<string, number>): str
     return `(${Math.floor(averageSalary / 100) * 100}-${Math.floor(averageSalary / 100) * 100 + 99})USD`;
 }
 
-export function getAverageGeneral(array: Record<string, number>): string {
+export function getAverageGeneral(array: [string, number][]): string {
     let total = 0;
     let count = 0;
 
-    for (const key in array) {
+    for (const [key, value] of array) {
         if (parseFloat(key)) {
-            total += parseFloat(key) * array[key];
-            count += array[key];
+            total += parseFloat(key) * value;
+            count += value;
         }
     }
 
     return Math.floor(total / count).toString();
 }
 
-export function getSortedSliced(profesiones: Record<string, number>, slice: number = 10): [string, number][] {
-    return Object.entries(profesiones)
+export function getSortedSliced(profesiones: [string, number][], slice: number = 10): [string, number][] {
+    return profesiones
         .sort(([, a], [, b]) => b - a)
         .slice(0, slice)
 }

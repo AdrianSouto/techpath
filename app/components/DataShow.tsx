@@ -10,13 +10,12 @@ type Props = {
     title: string,
     subtitle: string,
     description: string,
-    data: Record<string, number>
+    data: [string, number][]
     chartType?: string
 }
 
 export default function DataShow({title, subtitle, description, data, chartType = 'bar'}: Props) {
-    const profesionesArray = Object.entries(data)
-    const sortedProfesiones = profesionesArray.sort(([, a], [, b]) => b - a)
+    const sortedProfesiones = data.sort(([, a], [, b]) => b - a)
     const [showMore, setShowMore] = useState(false)
     const [filter , setFilter] = useState<[string, number][]>([])
     return (

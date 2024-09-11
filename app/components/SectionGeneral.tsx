@@ -9,10 +9,10 @@ type Props = {
     title: string
     filter: [string, number][];
     setFilter: (value: (((prevState: [string, number][]) => [string, number][]) | [string, number][])) => void;
-    data: Record<string, number>;
+    data: [string, number][];
     mainCampo: DataEnum
     campo: DataEnum
-    setMainCampo: React.Dispatch<React.SetStateAction<DataEnum>>
+    setMainCampo: React.Dispatch<React.SetStateAction<DataEnum>>,
 }
 
 export default function SectionGeneral({
@@ -22,7 +22,7 @@ export default function SectionGeneral({
                                            data,
                                            mainCampo,
                                            campo,
-                                           setMainCampo
+                                           setMainCampo,
                                        }: Props) {
     const [searchText, setSearchText] = useState('')
     const [showMore, setShowMore] = useState(false)
@@ -60,6 +60,7 @@ export default function SectionGeneral({
                                     onClick={() => {
                                         if (!filter.some(([filteredName]) => filteredName === name)) {
                                             setFilter([...filter, [name, cantidad]]);
+
                                         } else {
                                             setFilter(filter.filter(([filteredName]) => filteredName !== name));
                                         }

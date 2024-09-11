@@ -2,122 +2,116 @@ import data from "@/lib/data.json";
 import {dataType, frameworkLanguage, tecnoCampo} from "@/lib/utils";
 
 export async function makeData() {
-    const profesiones: Record<string, number> = {}
-    const tecnologias: Record<string, number> = {}
-    const campos: Record<string, number> = {}
-    const modalidades: Record<string, number> = {}
-    const salaryRanges: Record<string, number> = {}
-    const experiencias: Record<string, number> = {}
-    const paises: Record<string, number> = {}
-    const empleadores: Record<string, number> = {}
-    const idiomas: Record<string, number> = {}
-    data.forEach((item: dataType) => {
+    const profesionesIndex: Record<string, Set<number>> = {}
+    const tecnologiasIndex: Record<string, Set<number>> = {}
+    const camposIndex: Record<string, Set<number>> = {}
+    const modalidadesIndex: Record<string, Set<number>> = {}
+    const salaryRangesIndex: Record<string, Set<number>> = {}
+    const experienciasIndex: Record<string, Set<number>> = {}
+    const paisesIndex: Record<string, Set<number>> = {}
+    const empleadoresIndex: Record<string, Set<number>> = {}
+    const idiomasIndex: Record<string, Set<number>> = {}
+    data.forEach((item: dataType, index) => {
         if (item.Profesion) {
-            if (profesiones[item.Profesion]) {
-                profesiones[item.Profesion]++
-            } else {
-                profesiones[item.Profesion] = 1
-            }
+            if (profesionesIndex[item.Profesion])
+                profesionesIndex[item.Profesion].add(index)
+            else
+                profesionesIndex[item.Profesion] = new Set([index])
         }
         if (item.Tecnologias) {
             item.Tecnologias.forEach((tecnologia: string) => {
                 tecnologia = tecnologia.toLowerCase()
-                if (tecnologias[tecnologia]) {
-                    tecnologias[tecnologia]++
-                } else {
-                    tecnologias[tecnologia] = 1
-                }
+                if (tecnologiasIndex[tecnologia])
+                    tecnologiasIndex[tecnologia].add(index)
+                else
+                    tecnologiasIndex[tecnologia] = new Set([index])
+
                 if (tecnoCampo[tecnologia]) {
-                    if (campos[tecnoCampo[tecnologia]]) {
-                        campos[tecnoCampo[tecnologia]]++
-                    } else {
-                        campos[tecnoCampo[tecnologia]] = 1
-                    }
+                    if (camposIndex[tecnoCampo[tecnologia]])
+                        camposIndex[tecnoCampo[tecnologia]].add(index)
+                    else
+                        camposIndex[tecnoCampo[tecnologia]] = new Set([index])
                 }
                 if (frameworkLanguage[tecnologia]) {
-                    if (tecnologias[frameworkLanguage[tecnologia]]) {
-                        tecnologias[frameworkLanguage[tecnologia]]++
-                    } else {
-                        tecnologias[frameworkLanguage[tecnologia]] = 1
-                    }
+                    if (tecnologiasIndex[frameworkLanguage[tecnologia]])
+                        tecnologiasIndex[frameworkLanguage[tecnologia]].add(index)
+                    else
+                        tecnologiasIndex[frameworkLanguage[tecnologia]] = new Set([index])
                 }
             })
         }
         if (item["Modalidad de Trabajo"]) {
             if (item["Modalidad de Trabajo"] === 'Remoto') {
-                if (modalidades['Remoto']) {
-                    modalidades['Remoto']++
-                } else {
-                    modalidades['Remoto'] = 1
-                }
+                if (modalidadesIndex['Remoto'])
+                    modalidadesIndex['Remoto'].add(index)
+                else
+                    modalidadesIndex['Remoto'] = new Set([index])
             } else {
-                if (modalidades['Presencial']) {
-                    modalidades['Presencial']++
-                } else {
-                    modalidades['Presencial'] = 1
-                }
+                if (modalidadesIndex['Presencial'])
+                    modalidadesIndex['Presencial'].add(index)
+                else
+                    modalidadesIndex['Presencial'] = new Set([index])
+
             }
         }
 
-            if (item.Salario) {
-                const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario
-                if (salario !== null && !isNaN(salario)) {
-                    const range = `(${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}) USD`
-                    if (salaryRanges[range]) {
-                        salaryRanges[range]++
-                    } else {
-                        salaryRanges[range] = 1
-                    }
-                }
-            }
-            if (item.Experiencia) {
-                const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia
-                if (!isNaN(numberXP))
-                    if (experiencias[numberXP.toString() + " años"])
-                        experiencias[numberXP.toString() + " años"]++
-                    else
-                        experiencias[numberXP.toString() + " años"] = 1
+        if (item.Salario) {
+            const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario
+            if (!isNaN(salario)) {
+                const range = `(${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}) USD`
+                if (salaryRangesIndex[range])
+                    salaryRangesIndex[range].add(index)
+                else
+                    salaryRangesIndex[range] = new Set([index])
 
             }
+        }
+        if (item.Experiencia) {
+            const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia
+            if (!isNaN(numberXP)) {
+                if (experienciasIndex[numberXP.toString() + " años"])
+                    experienciasIndex[numberXP.toString() + " años"].add(index)
+                else
+                    experienciasIndex[numberXP.toString() + " años"] = new Set([index])
+            }
+        }
 
-            if (item.Pais) {
-                if (paises[item.Pais]) {
-                    paises[item.Pais]++
-                } else {
-                    paises[item.Pais] = 1
-                }
-            }
-            if (item.Empleador) {
-                if (empleadores[item.Empleador]) {
-                    empleadores[item.Empleador]++
-                } else {
-                    empleadores[item.Empleador] = 1
-                }
-            }
-            if (item.Idiomas) {
-                if (idiomas['Inglés']) {
-                    idiomas['Inglés']++
-                } else {
-                    idiomas['Inglés'] = 1
-                }
-            } else {
-                if (idiomas['Español']) {
-                    idiomas['Español']++
-                } else {
-                    idiomas['Español'] = 1
-                }
-            }
+        if (item.Pais) {
+            if (paisesIndex[item.Pais])
+                paisesIndex[item.Pais].add(index)
+            else
+                paisesIndex[item.Pais] = new Set([index])
         }
-    )
-        return {
-            profesiones,
-            tecnologias,
-            campos,
-            modalidades,
-            salaryRanges,
-            experiencias,
-            paises,
-            empleadores,
-            idiomas
+        if (item.Empleador) {
+            if (empleadoresIndex[item.Empleador])
+                empleadoresIndex[item.Empleador].add(index)
+            else
+                empleadoresIndex[item.Empleador] = new Set([index])
+
         }
+        if (item.Idiomas) {
+            if (idiomasIndex['Inglés'])
+                idiomasIndex['Inglés'].add(index)
+            else
+                idiomasIndex['Inglés'] = new Set([index])
+
+
+        } else {
+            if (idiomasIndex['Español'])
+                idiomasIndex['Español'].add(index)
+            else
+                idiomasIndex['Español'] = new Set([index])
+        }
+    })
+    return {
+        profesionesIndex,
+        tecnologiasIndex,
+        camposIndex,
+        modalidadesIndex,
+        salaryRangesIndex,
+        experienciasIndex,
+        paisesIndex,
+        empleadoresIndex,
+        idiomasIndex
     }
+}

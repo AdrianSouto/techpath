@@ -1,9 +1,8 @@
 import {MyBarChart} from "@/app/charts/components/MyBarChart";
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {dataType, mySort} from "@/lib/utils";
+import {mySort} from "@/lib/utils";
 import SectionGeneral from "@/app/components/SectionGeneral";
-import json from "@/lib/data.json";
 
 export enum DataEnum {
     profesiones = 'Profesion',
@@ -18,21 +17,32 @@ export enum DataEnum {
 }
 
 type Props = {
-    data: {
-        profesiones: Record<string, number>
-        tecnologias: Record<string, number>
-        campos: Record<string, number>
-        modalidades: Record<string, number>
-        salaryRanges: Record<string, number>
-        experiencias: Record<string, number>
-        paises: Record<string, number>
-        empleadores: Record<string, number>
-        idiomas: Record<string, number>
+    dataIndex: {
+        profesionesIndex: Record<string, Set<number>>
+        tecnologiasIndex: Record<string, Set<number>>
+        camposIndex: Record<string, Set<number>>
+        modalidadesIndex: Record<string, Set<number>>
+        salaryRangesIndex: Record<string, Set<number>>
+        experienciasIndex: Record<string, Set<number>>
+        paisesIndex: Record<string, Set<number>>
+        empleadoresIndex: Record<string, Set<number>>
+        idiomasIndex: Record<string, Set<number>>
+    }
+    dataCount: {
+        profesiones: [string, number][]
+        tecnologias: [string, number][]
+        campos: [string, number][]
+        modalidades: [string, number][]
+        salaryRanges: [string, number][]
+        experiencias: [string, number][]
+        paises: [string, number][]
+        empleadores: [string, number][]
+        idiomas: [string, number][]
     }
 }
 
 
-export default function Personalizado({data}: Props) {
+export default function Personalizado({dataIndex, dataCount}: Props) {
     const [mainCampo, setMainCampo] = useState(DataEnum.profesiones)
     const [filterGeneral, setFilterGeneral] = useState<[string, number][]>([])
 
@@ -45,183 +55,70 @@ export default function Personalizado({data}: Props) {
     const [filterPaises, setFilterPaises] = useState<[string, number][]>([])
     const [filterEmpleadores, setFilterEmpleadores] = useState<[string, number][]>([])
     const [filterIdiomas, setFilterIdiomas] = useState<[string, number][]>([])
-    const mapper = {
-        [DataEnum.profesiones]: filterProfesiones,
-        [DataEnum.tecnologias]: filterTecnologias,
-        [DataEnum.campos]: filterCampos,
-        [DataEnum.modalidades]: filterModalidades,
-        [DataEnum.salaryRanges]: filterSalaryRanges,
-        [DataEnum.experiencias]: filterExperiencias,
-        [DataEnum.paises]: filterPaises,
-        [DataEnum.empleadores]: filterEmpleadores,
-        [DataEnum.idiomas]: filterIdiomas
+    const mapperFilter = {
+        [DataEnum.profesiones]: filterProfesiones as [string, number][],
+        [DataEnum.tecnologias]: filterTecnologias as [string, number][],
+        [DataEnum.campos]: filterCampos as [string, number][],
+        [DataEnum.modalidades]: filterModalidades as [string, number][],
+        [DataEnum.salaryRanges]: filterSalaryRanges as [string, number][],
+        [DataEnum.experiencias]: filterExperiencias as [string, number][],
+        [DataEnum.paises]: filterPaises as [string, number][],
+        [DataEnum.empleadores]: filterEmpleadores as [string, number][],
+        [DataEnum.idiomas]: filterIdiomas as [string, number][],
     }
+    const mapperIndex = {
+        [DataEnum.profesiones]: dataIndex.profesionesIndex,
+        [DataEnum.tecnologias]: dataIndex.tecnologiasIndex,
+        [DataEnum.campos]: dataIndex.camposIndex,
+        [DataEnum.modalidades]: dataIndex.modalidadesIndex,
+        [DataEnum.salaryRanges]: dataIndex.salaryRangesIndex,
+        [DataEnum.experiencias]: dataIndex.experienciasIndex,
+        [DataEnum.paises]: dataIndex.paisesIndex,
+        [DataEnum.empleadores]: dataIndex.empleadoresIndex,
+        [DataEnum.idiomas]: dataIndex.idiomasIndex
+    }
+    const mapperData = {
+        [DataEnum.profesiones]: dataCount.profesiones,
+        [DataEnum.tecnologias]: dataCount.tecnologias,
+        [DataEnum.campos]: dataCount.campos,
+        [DataEnum.modalidades]: dataCount.modalidades,
+        [DataEnum.salaryRanges]: dataCount.salaryRanges,
+        [DataEnum.experiencias]: dataCount.experiencias,
+        [DataEnum.paises]: dataCount.paises,
+        [DataEnum.empleadores]: dataCount.empleadores,
+        [DataEnum.idiomas]: dataCount.idiomas
+    }
+
     useEffect(() => {
-        setFilterGeneral(mapper[mainCampo])
-        setFilterCampos(mapper[mainCampo])
-    }, [mainCampo, mapper])
+        const temp: [string, number][] = []
+        mapperFilter[mainCampo].forEach(([key,]) => {
+            let count = mapperIndex[mainCampo][key].size;
+            mapperIndex[mainCampo][key].forEach((index) => {
 
-
-    useEffect(() => {
-
-            filterGeneral.forEach(([mainKey,], mainIndex) => {
-                const salaryRanges: Record<string, number> = {}
-                const experiencias: Record<string, number> = {}
-                const paises: Record<string, number> = {}
-                const empleadores: Record<string, number> = {}
-                const idiomas: Record<string, number> = {}
-                let count = 0;
-                json.forEach((item: dataType) => {
-                        const isOk: boolean[] = [false, false]
-                        if (item.Profesion) {
-                            if (mainCampo !== DataEnum.profesiones) {
-                                let x = false
-                                filterProfesiones.forEach(([key,]) => {
-                                    if (item.Profesion?.toLowerCase() === key.toLowerCase()) {
-                                        x = true
-                                    }
-                                })
-                                isOk[0] = x
-                            } else {
-                                if (item.Profesion?.toLowerCase() === mainKey.toLowerCase()) {
-                                    isOk[0] = true
-                                }else{
-                                    isOk[0] = false
-                                }
-
-                            }
-                        }
-                        if (item.Tecnologias) {
-                            if (mainCampo !== DataEnum.tecnologias) {
-                                let x = false
-                                item.Tecnologias.forEach((tecnologia: string) => {
-                                    tecnologia = tecnologia.toLowerCase()
-                                    filterTecnologias.forEach(([key,]) => {
-                                        if (tecnologia === key.toLowerCase()) {
-                                            x = true
-                                        }
-                                    })
-                                })
-                                isOk[1] = x
-                            } else {
-                                if (item.Tecnologias.some((tecnologia) => tecnologia.toLowerCase() === mainKey.toLowerCase())) {
-                                    isOk[1] = true
-                                }else{
-                                    isOk[0] = false
-                                }
-                            }
-                        }
-                        /*if (item["Modalidad de Trabajo"]) {
-                            if(mainCampo !== DataEnum.modalidades){
-                                let x = false
-                                filterModalidades.forEach(([key,]) => {
-                                    if (item["Modalidad de Trabajo"]?.toLowerCase() === key.toLowerCase()) {
-                                        x = true
-                                    }
-                                })
-                                isOk[2] = x
-                            }
-
-                        }*/
-
-                        if (item.Salario) {
-                            const salario = typeof item.Salario === 'string' ? parseFloat(item.Salario) : item.Salario
-                            if (salario !== null && !isNaN(salario)) {
-                                const range = `(${Math.floor(salario / 100) * 100}-${Math.floor(salario / 100) * 100 + 99}) USD`
-                                if (salaryRanges[range]) {
-                                    salaryRanges[range]++
-                                } else {
-                                    salaryRanges[range] = 1
-                                }
-                            }
-                        }
-                        if (item.Experiencia) {
-                            const numberXP = typeof item.Experiencia === 'string' ? parseInt(item.Experiencia) : item.Experiencia
-                            if (!isNaN(numberXP))
-                                if (experiencias[numberXP.toString() + " años"])
-                                    experiencias[numberXP.toString() + " años"]++
-                                else
-                                    experiencias[numberXP.toString() + " años"] = 1
-
-                        }
-
-                        if (item.Pais) {
-                            if (paises[item.Pais]) {
-                                paises[item.Pais]++
-                            } else {
-                                paises[item.Pais] = 1
-                            }
-                        }
-                        if (item.Empleador) {
-                            if (empleadores[item.Empleador]) {
-                                empleadores[item.Empleador]++
-                            } else {
-                                empleadores[item.Empleador] = 1
-                            }
-                        }
-                        if (item.Idiomas) {
-                            if (idiomas['Inglés']) {
-                                idiomas['Inglés']++
-                            } else {
-                                idiomas['Inglés'] = 1
-                            }
-                        } else {
-                            if (idiomas['Español']) {
-                                idiomas['Español']++
-                            } else {
-                                idiomas['Español'] = 1
-                            }
-                        }
-                        let x = true
-                        isOk.forEach((bool) => {
-                            if (!bool) {
-                                x = false
-                            }
-                        })
-                        if (x) {
-                            count++
-                        }
-                        console.log(count)
-                        const temp = [...filterGeneral]
-                        temp[mainIndex][1] = count;
-                        setFilterGeneral(temp)
-                    }
-                )
-
-            });
-        }
-        ,
-        [filterTecnologias, filterProfesiones]
-    )
-    /*filterGeneral.forEach(([key,], index) => {
-        let filteredItems: dataType[] = json.filter((item: dataType) => {
-            return (
-                (
-                    item.Profesion?.toLowerCase() === key.toLowerCase() ||
-                    item.Tecnologias?.some((tecnologia) => tecnologia.toLowerCase() === key.toLowerCase())
-                )
-            )
-        });
-        Object.entries(mapper).forEach(([key, value]) => {
-            if (key !== mainCampo) {
-                value.forEach(([filterKey,]) => {
-                    filteredItems = filteredItems.filter((item: dataType) => {
-                        return (
-                            (
-                                item.Profesion?.toLowerCase() === filterKey.toLowerCase() ||
-                                item.Tecnologias?.some((tecnologia) => tecnologia.toLowerCase() === filterKey.toLowerCase())
-                            )
-                        )
+                if (filterTecnologias.length > 0 && mainCampo !== DataEnum.tecnologias) {
+                    if (count === mapperIndex[mainCampo][key].size) count = 0
+                    let tecnologiaSet = new Set<number>
+                    filterTecnologias.forEach(([tecnologia,]) => {
+                        tecnologiaSet = tecnologiaSet.union(dataIndex.tecnologiasIndex[tecnologia])
                     })
-                })
-            }
-        })
-        console.log(filteredItems)
-        const temp = [...filterGeneral]
-        temp[index][1] = filteredItems.length;
-        setFilterGeneral(temp)
+                    if (tecnologiaSet.has(index)) count++
+                }
+                if (filterProfesiones.length > 0 && mainCampo !== DataEnum.profesiones) {
+                    if (count === mapperIndex[mainCampo][key].size) count = 0
+                    let profesionSet = new Set<number>
+                    filterProfesiones.forEach(([profesion,]) => {
+                        profesionSet = profesionSet.union(dataIndex.profesionesIndex[profesion])
+                    })
+                    if (profesionSet.has(index)) count++
+                }
 
-    });*/
+
+            })
+            temp.push([key, count])
+
+        })
+        setFilterGeneral(temp)
+    }, [filterProfesiones, filterTecnologias, mainCampo]);
 
 
     return (
@@ -233,13 +130,13 @@ export default function Personalizado({data}: Props) {
                 </div>
                 <SectionGeneral title={"Profesiones"} filter={filterProfesiones}
                                 setFilter={setFilterProfesiones}
-                                data={data.profesiones} mainCampo={mainCampo} campo={DataEnum.profesiones}
+                                data={dataCount.profesiones} mainCampo={mainCampo} campo={DataEnum.profesiones}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Tecnologias"} filter={filterTecnologias}
                                 setFilter={setFilterTecnologias}
-                                data={data.tecnologias} mainCampo={mainCampo} campo={DataEnum.tecnologias}
+                                data={dataCount.tecnologias} mainCampo={mainCampo} campo={DataEnum.tecnologias}
                                 setMainCampo={setMainCampo}/>
-                <SectionGeneral title={"Rangos de Salario"} filter={filterSalaryRanges}
+                {/*<SectionGeneral title={"Rangos de Salario"} filter={filterSalaryRanges}
                                 setFilter={setFilterSalaryRanges}
                                 data={data.salaryRanges} mainCampo={mainCampo} campo={DataEnum.salaryRanges}
                                 setMainCampo={setMainCampo}/>
@@ -260,7 +157,7 @@ export default function Personalizado({data}: Props) {
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Idiomas"} filter={filterIdiomas} setFilter={setFilterIdiomas}
                                 data={data.idiomas} mainCampo={mainCampo} campo={DataEnum.idiomas}
-                                setMainCampo={setMainCampo}/>
+                                setMainCampo={setMainCampo}/>*/}
 
                 <MyBarChart name={'General'} description={'Grafico generado a partir de los filtros anteriores'}
                             data={mySort(filterGeneral)}/>
