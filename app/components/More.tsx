@@ -42,7 +42,7 @@ export default function More({ setShowMore, data, filter, setFilter }: Props) {
                 <div className={"grid grid-cols-2 lg:grid-cols-5 gap-5"}>
                     {sortedProfesiones.map(([name, cantidad], index) => {
                         return (
-                            name.match(new RegExp(searchText, 'i')) &&
+                            name.toLowerCase().includes(searchText) &&
                             <div
                                 key={index}
                                 onClick={() => {

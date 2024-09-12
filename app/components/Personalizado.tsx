@@ -77,48 +77,92 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
         [DataEnum.empleadores]: dataIndex.empleadoresIndex,
         [DataEnum.idiomas]: dataIndex.idiomasIndex
     }
-    const mapperData = {
-        [DataEnum.profesiones]: dataCount.profesiones,
-        [DataEnum.tecnologias]: dataCount.tecnologias,
-        [DataEnum.campos]: dataCount.campos,
-        [DataEnum.modalidades]: dataCount.modalidades,
-        [DataEnum.salaryRanges]: dataCount.salaryRanges,
-        [DataEnum.experiencias]: dataCount.experiencias,
-        [DataEnum.paises]: dataCount.paises,
-        [DataEnum.empleadores]: dataCount.empleadores,
-        [DataEnum.idiomas]: dataCount.idiomas
-    }
 
     useEffect(() => {
         const temp: [string, number][] = []
         mapperFilter[mainCampo].forEach(([key,]) => {
             let count = mapperIndex[mainCampo][key].size;
-            mapperIndex[mainCampo][key].forEach((index) => {
+            let profesionSet = new Set<number>
+            let tecnologiaSet = new Set<number>
+            let campoSet = new Set<number>
+            let modalidadSet = new Set<number>
+            let salarioSet = new Set<number>
+            let experienciaSet = new Set<number>
+            let paisSet = new Set<number>
+            let empleadorSet = new Set<number>
+            let idiomaSet = new Set<number>
 
-                if (filterTecnologias.length > 0 && mainCampo !== DataEnum.tecnologias) {
-                    if (count === mapperIndex[mainCampo][key].size) count = 0
-                    let tecnologiaSet = new Set<number>
-                    filterTecnologias.forEach(([tecnologia,]) => {
-                        tecnologiaSet = tecnologiaSet.union(dataIndex.tecnologiasIndex[tecnologia])
-                    })
-                    if (tecnologiaSet.has(index)) count++
-                }
-                if (filterProfesiones.length > 0 && mainCampo !== DataEnum.profesiones) {
-                    if (count === mapperIndex[mainCampo][key].size) count = 0
-                    let profesionSet = new Set<number>
-                    filterProfesiones.forEach(([profesion,]) => {
-                        profesionSet = profesionSet.union(dataIndex.profesionesIndex[profesion])
-                    })
-                    if (profesionSet.has(index)) count++
-                }
+            let interseccion = mapperIndex[mainCampo][key]
+            if (filterProfesiones.length > 0 && mainCampo !== DataEnum.profesiones) {
+                filterProfesiones.forEach(([profesion,]) => {
+                    profesionSet = profesionSet.union(dataIndex.profesionesIndex[profesion])
+                })
+                interseccion = interseccion.intersection(profesionSet)
+            }
 
+            if (filterTecnologias.length > 0 && mainCampo !== DataEnum.tecnologias) {
+                filterTecnologias.forEach(([tecnologia,]) => {
+                    tecnologiaSet = tecnologiaSet.union(dataIndex.tecnologiasIndex[tecnologia])
+                })
+                interseccion = interseccion.intersection(tecnologiaSet)
+            }
 
-            })
+            if (filterCampos.length > 0 && mainCampo !== DataEnum.campos) {
+                filterCampos.forEach(([campo,]) => {
+                    campoSet = campoSet.union(dataIndex.camposIndex[campo])
+                })
+                interseccion = interseccion.intersection(campoSet)
+            }
+
+            if (filterModalidades.length > 0 && mainCampo !== DataEnum.modalidades) {
+                filterModalidades.forEach(([modalidad,]) => {
+                    modalidadSet = modalidadSet.union(dataIndex.modalidadesIndex[modalidad])
+                })
+                interseccion = interseccion.intersection(modalidadSet)
+            }
+
+            if (filterSalaryRanges.length > 0 && mainCampo !== DataEnum.salaryRanges) {
+                filterSalaryRanges.forEach(([salario,]) => {
+                    salarioSet = salarioSet.union(dataIndex.salaryRangesIndex[salario])
+                })
+                interseccion = interseccion.intersection(salarioSet)
+                console.log(interseccion)
+            }
+
+            if (filterExperiencias.length > 0 && mainCampo !== DataEnum.experiencias) {
+                filterExperiencias.forEach(([experiencia,]) => {
+                    experienciaSet = experienciaSet.union(dataIndex.experienciasIndex[experiencia])
+                })
+                interseccion = interseccion.intersection(experienciaSet)
+            }
+
+            if (filterPaises.length > 0 && mainCampo !== DataEnum.paises) {
+                filterPaises.forEach(([pais,]) => {
+                    paisSet = paisSet.union(dataIndex.paisesIndex[pais])
+                })
+                interseccion = interseccion.intersection(paisSet)
+            }
+
+            if (filterEmpleadores.length > 0 && mainCampo !== DataEnum.empleadores) {
+                filterEmpleadores.forEach(([empleador,]) => {
+                    empleadorSet = empleadorSet.union(dataIndex.empleadoresIndex[empleador])
+                })
+                interseccion = interseccion.intersection(empleadorSet)
+            }
+
+            if (filterIdiomas.length > 0 && mainCampo !== DataEnum.idiomas) {
+                filterIdiomas.forEach(([idioma,]) => {
+                    idiomaSet = idiomaSet.union(dataIndex.idiomasIndex[idioma])
+                })
+                interseccion = interseccion.intersection(idiomaSet)
+            }
+
+            count = interseccion.size
             temp.push([key, count])
 
         })
         setFilterGeneral(temp)
-    }, [filterProfesiones, filterTecnologias, mainCampo]);
+    }, [mainCampo, filterProfesiones, filterTecnologias, filterCampos, filterModalidades, filterSalaryRanges, filterExperiencias, filterPaises, filterEmpleadores, filterIdiomas]);
 
 
     return (
@@ -128,6 +172,12 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                     <h1 className={'font-bold text-3xl'}>Grafico Personalizado</h1>
                     <p>Seleccione la información que desee conocer y la pondremos a su disposición</p>
                 </div>
+                <div className={'w-2/3'}>
+                    <MyBarChart name={'General'} description={'Grafico generado a partir de los filtros anteriores'}
+                                data={mySort(filterGeneral)}/>
+
+                </div>
+
                 <SectionGeneral title={"Profesiones"} filter={filterProfesiones}
                                 setFilter={setFilterProfesiones}
                                 data={dataCount.profesiones} mainCampo={mainCampo} campo={DataEnum.profesiones}
@@ -136,31 +186,33 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                                 setFilter={setFilterTecnologias}
                                 data={dataCount.tecnologias} mainCampo={mainCampo} campo={DataEnum.tecnologias}
                                 setMainCampo={setMainCampo}/>
-                {/*<SectionGeneral title={"Rangos de Salario"} filter={filterSalaryRanges}
+                <SectionGeneral title={"Rangos de Salario"} filter={filterSalaryRanges}
                                 setFilter={setFilterSalaryRanges}
-                                data={data.salaryRanges} mainCampo={mainCampo} campo={DataEnum.salaryRanges}
+                                data={dataCount.salaryRanges} mainCampo={mainCampo} campo={DataEnum.salaryRanges}
+                                setMainCampo={setMainCampo}/>
+                <SectionGeneral title={"Campos"} filter={filterCampos} setFilter={setFilterCampos}
+                                data={dataCount.campos} mainCampo={mainCampo} campo={DataEnum.campos}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Modalidades"} filter={filterModalidades}
                                 setFilter={setFilterModalidades}
-                                data={data.modalidades} mainCampo={mainCampo} campo={DataEnum.modalidades}
+                                data={dataCount.modalidades} mainCampo={mainCampo} campo={DataEnum.modalidades}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Experiencias"} filter={filterExperiencias}
                                 setFilter={setFilterExperiencias}
-                                data={data.experiencias} mainCampo={mainCampo} campo={DataEnum.experiencias}
+                                data={dataCount.experiencias} mainCampo={mainCampo} campo={DataEnum.experiencias}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Paises"} filter={filterPaises} setFilter={setFilterPaises}
-                                data={data.paises} mainCampo={mainCampo} campo={DataEnum.paises}
+                                data={dataCount.paises} mainCampo={mainCampo} campo={DataEnum.paises}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Empleadores"} filter={filterEmpleadores}
                                 setFilter={setFilterEmpleadores}
-                                data={data.empleadores} mainCampo={mainCampo} campo={DataEnum.empleadores}
+                                data={dataCount.empleadores} mainCampo={mainCampo} campo={DataEnum.empleadores}
                                 setMainCampo={setMainCampo}/>
                 <SectionGeneral title={"Idiomas"} filter={filterIdiomas} setFilter={setFilterIdiomas}
-                                data={data.idiomas} mainCampo={mainCampo} campo={DataEnum.idiomas}
-                                setMainCampo={setMainCampo}/>*/}
+                                data={dataCount.idiomas} mainCampo={mainCampo} campo={DataEnum.idiomas}
+                                setMainCampo={setMainCampo}/>
 
-                <MyBarChart name={'General'} description={'Grafico generado a partir de los filtros anteriores'}
-                            data={mySort(filterGeneral)}/>
+
             </div>
         </section>
     )
