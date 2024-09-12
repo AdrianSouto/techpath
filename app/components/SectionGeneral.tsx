@@ -1,6 +1,6 @@
 import * as React from "react";
 import More from "@/app/components/More";
-import {getSortedSliced} from "@/lib/utils";
+import {mySort} from "@/lib/utils";
 import {useState} from "react";
 import {Search} from "lucide-react";
 import {DataEnum} from "@/app/components/Personalizado";
@@ -9,10 +9,10 @@ type Props = {
     title: string
     filter: [string, number][];
     setFilter: (value: (((prevState: [string, number][]) => [string, number][]) | [string, number][])) => void;
-    data: Record<string, number>;
+    data: [string, number][];
     mainCampo: DataEnum
     campo: DataEnum
-    setMainCampo: React.Dispatch<React.SetStateAction<DataEnum>>
+    setMainCampo: React.Dispatch<React.SetStateAction<DataEnum>>,
 }
 
 export default function SectionGeneral({
@@ -22,44 +22,50 @@ export default function SectionGeneral({
                                            data,
                                            mainCampo,
                                            campo,
-                                           setMainCampo
+                                           setMainCampo,
                                        }: Props) {
     const [searchText, setSearchText] = useState('')
     const [showMore, setShowMore] = useState(false)
-    return <div className={'flex flex-col p-5 mt-5 space-y-3 '}>
+    return <div className={'flex flex-col p-5 mt-5 space-y-3  '}>
         <div className={'flex justify-between'}>
             <div className={'flex space-x-5 items-center'}>
                 <h2 className={' font-bold text-xl '}>{title}</h2>
                 <div
-                    className={`rounded-full size-5 border-2 border-tuatara-900 hover:cursor-pointer hover:border-4 transition-all ${campo === mainCampo && 'border-8'}`}
+                    className={`rounded-full size-5 border-2 border-tuatara-900 hover:cursor-pointer hover:border-4 transition-all ${campo === mainCampo && 'border-8 hover:border-8'}`}
                     onClick={() => setMainCampo(campo)}
                 />
             </div>
-            {showMore || <div className={"relative"}>
-                <input
-                    className={"flex font-semibold text-sm justify-center items-center border-tuatara-950 py-1 px-4 bg-white rounded-full border-2 pr-10"}
-                    placeholder={"Buscar"}
-                    value={searchText}
-                    onChange={(e) => setSearchText(e.target.value)}
-                />
-                <Search className={"absolute right-3 top-1/2 transform -translate-y-1/2"}/>
-            </div>}
+            {showMore ||
+                <div className={"flex flex-col space-y-2"}>
+                    <h2 className={"ms-10 font-semibold text-green-700"}>Seleccionados: {filter.length} </h2>
+                    <div className={"relative"}>
+                        <input
+                            className={"flex font-semibold text-sm justify-center items-center border-tuatara-950 py-1 px-4 bg-white rounded-full border-2 pr-10"}
+                            placeholder={"Buscar"}
+                            value={searchText}
+                            onChange={(e) => setSearchText(e.target.value)}
+                        />
+                        <Search className={"absolute right-3 top-1/2 transform -translate-y-1/2"}/>
+                    </div>
+                </div>
+            }
         </div>
 
         {showMore ?
             <More filter={filter} setFilter={setFilter} setShowMore={setShowMore} data={data}/>
             :
             <div className={"flex flex-col space-y-4 items-center"}>
-                <div className={"grid grid-cols-5 gap-5"}>
+                <div className={"grid grid-cols-5 gap-5 w-full"}>
                     {
-                        getSortedSliced(data, 20).map(([name, cantidad], index) => {
+                        mySort(data).map(([name, cantidad], index) => {
                             return (
-                                name.match(new RegExp(searchText, 'i')) &&
+                                (searchText.length > 0 ? name.toLowerCase().includes(searchText) : index < 10) &&
                                 <div
                                     key={index}
                                     onClick={() => {
                                         if (!filter.some(([filteredName]) => filteredName === name)) {
                                             setFilter([...filter, [name, cantidad]]);
+
                                         } else {
                                             setFilter(filter.filter(([filteredName]) => filteredName !== name));
                                         }
