@@ -166,11 +166,11 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
     return (
         <section>
             <div className={'flex flex-col w-full'}>
-                <div className={'flex flex-col w-1/3 text-pretty'}>
+                <div className={'flex flex-col w-full lg:w-1/3 text-pretty'}>
                     <h1 className={'font-bold text-3xl'}>Grafico Personalizado</h1>
                     <p>Seleccione la información que desee conocer y la pondremos a su disposición</p>
                 </div>
-                <div className={'w-2/3'}>
+                <div className={'w-full lg:p-28'}>
                     <MyBarChart name={'General'} description={'Grafico generado a partir de los filtros anteriores'}
                                 data={mySort(filterGeneral)}/>
 
