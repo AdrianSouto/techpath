@@ -6,7 +6,6 @@ import {makeData} from "@/lib/procesaData";
 import * as React from "react";
 import DataShow from "@/app/components/DataShow";
 import Personalizado from "@/app/components/Personalizado";
-import {getAverageSalary} from "@/lib/utils";
 
 export default function Main() {
     const [dataIndex, setDataIndex] = useState({
@@ -42,10 +41,7 @@ export default function Main() {
 
     }
 
-    const salarioTec: [string, number][] = Object.entries<Set<number>>(dataIndex.tecnologiasIndex).map(([nameTec, setTec]) => {
-        const tecSal: [string, number][] = Object.entries<Set<number>>(dataIndex.salaryRangesIndex).map(([name, set]) => [name, set.intersection(setTec).size]);
-        return [nameTec, getAverageSalary(tecSal)];
-    })
+
     return (
         <div className={'p-8 flex flex-col space-y-56'}>
             <MyHome/>
@@ -72,9 +68,6 @@ export default function Main() {
             <DataShow title={"Experiencia"} subtitle={"más solicitada"}
                       description={"La experiencia es un factor muy importante en el sector tecnológico, como podemos observar la mayoría de las ofertas requieren entre 2 y 5 años de experiencia"}
                       data={dataCount.experiencias}/>
-            <DataShow title={"Salarios por tecnologías"} subtitle={"promedio"}
-                      description={"La experiencia es un factor muy importante en el sector tecnológico, como podemos observar la mayoría de las ofertas requieren entre 2 y 5 años de experiencia"}
-                      data={salarioTec}/>
 
             <Personalizado dataIndex={dataIndex} dataCount={dataCount}/>
         </div>
