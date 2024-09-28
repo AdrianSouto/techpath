@@ -112,6 +112,7 @@ export async function makeData() {
         experienciasIndex,
         paisesIndex,
         empleadoresIndex,
-        idiomasIndex
+        idiomasIndex,
+        total: data.length
     }
 }

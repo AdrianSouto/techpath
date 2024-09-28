@@ -1,7 +1,7 @@
 import {MyBarChart} from "@/app/charts/components/MyBarChart";
 import * as React from "react";
 import {useEffect, useState} from "react";
-import {mySort} from "@/lib/utils";
+import {getAverageSalary, mySort} from "@/lib/utils";
 import SectionGeneral from "@/app/components/SectionGeneral";
 
 export enum DataEnum {
@@ -161,6 +161,7 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
         })
         setFilterGeneral(temp)
     }, [mainCampo, filterProfesiones, filterTecnologias, filterCampos, filterModalidades, filterSalaryRanges, filterExperiencias, filterPaises, filterEmpleadores, filterIdiomas]);
+
 
 
     return (

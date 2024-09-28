@@ -10,6 +10,29 @@ export function mySort(array: [string, number][]) {
     return array.sort(([, a], [, b]) => b - a)
 }
 
+export function getAverageSalary(salaryRanges: [string, number][]): number {
+    let totalSalary = 0;
+    let totalCount = 0;
+
+    for (const [range, count] of salaryRanges) {
+        const match = range.match(/(\d+)-(\d+)/);
+
+        if (match) {
+            const min = parseInt(match[1], 10);
+            const max = parseInt(match[2], 10);
+
+            totalSalary += (min + max) / 2 * count;
+            totalCount += count;
+        }
+    }
+
+    if (totalCount === 0) {
+        return 0;
+    }
+
+    return Math.round(totalSalary / totalCount);
+}
+
 export function getAverageSalaryRange(salaryRanges: [string, number][]): string {
     let totalSalary = 0;
     let totalCount = 0;

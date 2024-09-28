@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function More({ setShowMore, data, filter, setFilter }: Props) {
-    const sortedProfesiones = getSortedSliced(data, 50);
+    const sortedProfesiones = getSortedSliced(data, 1000);
     const [searchText, setSearchText] = useState('')
     return (
         <section className={"mt-20 w-[90svw]"}>

@@ -21,7 +21,8 @@ type Props = {
     description?: string,
     footerText?: string,
     data: [string, number][],
-    className?: string
+    className?: string,
+    dataType?: string
 }
 
 export function MyBarChart(props: Props) {
@@ -70,12 +71,12 @@ export function MyBarChart(props: Props) {
                             axisLine={false}
                             tickFormatter={(value) => chartConfig[value as keyof typeof chartConfig]?.label || value}
                         />
-                        <XAxis dataKey="cantidad" type="number" hide/>
+                        <XAxis dataKey={'cantidad'} type="number" hide/>
                         <ChartTooltip
                             cursor={false}
                             content={<ChartTooltipContent hideLabel/>}
                         />
-                        <Bar dataKey="cantidad" layout="vertical" radius={5}/>
+                        <Bar dataKey="cantidad" name={props.dataType || 'cantidad: '} layout="vertical" radius={5}/>
                     </BarChart>
                 </ChartContainer>
             </CardContent>
