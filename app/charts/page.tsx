@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import {useEffect, useState} from "react"
-import {MyBarChart} from "@/app/charts/components/MyBarChart"
+import {DataShowType, MyBarChart} from "@/app/charts/components/MyBarChart"
 import {
     getAverageGeneral, getAverageSalary,
     getAverageSalaryRange,
@@ -49,29 +49,28 @@ export default function Charts() {
             return [nameTec, getAverageSalary(tecSal)];
     })
 
-    console.log(salarioTec)
 
     return (
         <div className={'mt-20 grid grid-cols-1 lg:grid-cols-2 gap-4 p-10'}>
             <MyBarChart name={"Profesiones"} description={'Profesiones más solicitadas'}
-                        data={getSortedSliced(profesiones)}/>
+                        data={getSortedSliced(profesiones)} dataRecord={data.profesionesIndex} total={data.total}/>
             <MyBarChart name={"Tecnologías"} description={'Tecnologias más demandadas'}
-                        data={getSortedSliced(tecnologias)}/>
-            <MyBarChart name={"Campos más requeridos"} data={getSortedSliced(campos)}/>
+                        data={getSortedSliced(tecnologias)} dataRecord={data.tecnologiasIndex} total={data.total}/>
+            <MyBarChart name={"Campos más requeridos"} data={getSortedSliced(campos)} dataRecord={data.camposIndex} total={data.total}/>
             <MyPieChart name={"Modalidades más solicitadas"} data={getSortedSliced(modalidades)}/>
             <MyBarChart name={"Salarios (USD)"} description={"Rangos de salarios más comunes"}
                         footerText={`Rango promedio de salarios: ${getAverageSalaryRange(salaryRanges)}`}
-                        data={getSortedSliced(salaryRanges)}/>
+                        data={getSortedSliced(salaryRanges)} dataRecord={data.salaryRangesIndex} total={data.total}/>
             <MyBarChart name={"Experiencia"} description={"Años de experiecia más solcitados"}
                         footerText={`El promedio de experiencia solicitado es: ${getAverageGeneral(experiencias)}`}
-                        data={getSortedSliced(experiencias)}/>
-            <MyBarChart name={"Paises"} description={'Paises que más solicitan'} data={getSortedSliced(paises)}/>
+                        data={getSortedSliced(experiencias)} dataRecord={data.experienciasIndex} total={data.total}/>
+            <MyBarChart name={"Paises"} description={'Paises que más solicitan'} data={getSortedSliced(paises)} dataRecord={data.paisesIndex} total={data.total}/>
             <MyBarChart name={"Empleadores"} description={'Empresas que más solicitan'}
-                        data={getSortedSliced(empleadores)}/>
+                        data={getSortedSliced(empleadores)} dataRecord={data.empleadoresIndex} total={data.total}/>
             <MyPieChart data={idiomas} description={'idiomas más demandados'} name={'idiomas'}/>
 
             <MyBarChart name={'Salarios por tecnologia'} description={'Salarios promedios por tecnologia'}
-                        data={getSortedSliced(salarioTec)} dataType={'promedio: '}/>
+                        data={salarioTec} dataType={'promedio: '} dataRecord={data.tecnologiasIndex} total={data.total}/>
         </div>
     )
 }
