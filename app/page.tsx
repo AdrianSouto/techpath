@@ -7,6 +7,11 @@ import * as React from "react";
 import DataShow from "@/app/components/DataShow";
 import Personalizado from "@/app/components/Personalizado";
 
+enum DataType{
+    porciento = 'porciento',
+    cantidad = 'cantidad'
+}
+
 export default function Main() {
     const [dataIndex, setDataIndex] = useState({
         profesionesIndex: {},
@@ -18,6 +23,7 @@ export default function Main() {
         paisesIndex: {},
         empleadoresIndex: {},
         idiomasIndex: {},
+        salarysIndex: {}
     })
     useEffect(() => {
         async function fetchData() {

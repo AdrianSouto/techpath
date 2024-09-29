@@ -29,18 +29,22 @@ export default function SectionGeneral({
     return (
         <div className={'flex flex-col p-2 lg:p-5 space-y-3 mt-10 lg:mt-0'}>
             <div className={'flex lg:flex-row flex-col space-y-2 justify-between'}>
-                <div className={'flex space-x-5 items-center'}>
+                <div>
                     <h2 className={' font-bold text-xl '}>{title}</h2>
-                    <div
-                        className={`rounded-full size-5 border-2 border-tuatara-900 hover:cursor-pointer hover:border-4 transition-all ${campo === mainCampo && 'border-8 hover:border-8'}`}
-                        onClick={() => setMainCampo(campo)}
-                    />
+                    <div className={'flex space-x-5'}>
+                        <p>Establecer como eje Y:</p>
+                        <div
+                            className={`rounded-full size-5 border-2 border-tuatara-900 hover:cursor-pointer hover:border-4 transition-all ${campo === mainCampo && 'border-8 hover:border-8'}`}
+                            onClick={() => setMainCampo(campo)}
+                        />
+                    </div>
+
                 </div>
                 {showMore ||
                     <div className={"flex flex-col space-y-2"}>
                         <h2 className={"ms-10 font-semibold text-green-700"}>Seleccionados: {filter.length} </h2>
                         <div className={"relative"}>
-                            <input
+                        <input
                                 className={"flex font-semibold text-sm justify-center items-center border-tuatara-950 py-1 px-4 bg-white rounded-full border-2 pr-10"}
                                 placeholder={"Buscar"}
                                 value={searchText}

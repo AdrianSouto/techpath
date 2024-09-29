@@ -7,6 +7,7 @@ export async function makeData() {
     const camposIndex: Record<string, Set<number>> = {}
     const modalidadesIndex: Record<string, Set<number>> = {}
     const salaryRangesIndex: Record<string, Set<number>> = {}
+    const salarysIndex: Record<string, Set<number>> = {}
     const experienciasIndex: Record<string, Set<number>> = {}
     const paisesIndex: Record<string, Set<number>> = {}
     const empleadoresIndex: Record<string, Set<number>> = {}
@@ -64,6 +65,11 @@ export async function makeData() {
                 else
                     salaryRangesIndex[range] = new Set([index])
 
+                if (salarysIndex[salario])
+                    salarysIndex[salario.toString()].add(index)
+                else
+                    salarysIndex[salario.toString()] = new Set([index])
+
             }
         }
         if (item.Experiencia) {
@@ -112,6 +118,7 @@ export async function makeData() {
         experienciasIndex,
         paisesIndex,
         empleadoresIndex,
-        idiomasIndex
+        idiomasIndex,
+        salarysIndex
     }
 }

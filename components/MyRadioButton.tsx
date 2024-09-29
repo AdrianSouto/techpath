@@ -1,4 +1,3 @@
-import {DataEnum} from "@/app/components/Personalizado";
 import * as React from "react";
 
 export default function MyRadioButton(props: { isEnabled: boolean, onClick: () => void, className?: string }) {

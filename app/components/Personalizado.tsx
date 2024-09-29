@@ -1,19 +1,22 @@
-import {MyBarChart} from "@/app/charts/components/MyBarChart";
 import * as React from "react";
 import {useEffect, useState} from "react";
 import {mySort} from "@/lib/utils";
 import SectionGeneral from "@/app/components/SectionGeneral";
+import {PersonalizadoChart} from "@/app/charts/components/PersonalizadoChart";
+import MyRadioButton from "@/components/MyRadioButton";
+import {MyDropDownMenu} from "@/components/MyDropDownMenu";
 
 export enum DataEnum {
     profesiones = 'Profesion',
     tecnologias = 'Tecnologias',
     campos = 'Campos',
     modalidades = 'Modalidad de Trabajo',
-    salaryRanges = 'Salario',
+    salaryRanges = 'Rangos de Salario',
     experiencias = 'Experiencia',
     paises = 'Pais',
     empleadores = 'Empleador',
-    idiomas = 'Idiomas'
+    idiomas = 'Idiomas',
+    salarys = 'Salario'
 }
 
 type Props = {
@@ -27,6 +30,7 @@ type Props = {
         paisesIndex: Record<string, Set<number>>
         empleadoresIndex: Record<string, Set<number>>
         idiomasIndex: Record<string, Set<number>>
+        salarysIndex: Record<string, Set<number>>
     }
     dataCount: {
         profesiones: [string, number][]
@@ -41,9 +45,14 @@ type Props = {
     }
 }
 
+enum DataType {
+    porciento = 'Porciento: ',
+    cantidad = 'Cantidad: '
+}
 
 export default function Personalizado({dataIndex, dataCount}: Props) {
     const [mainCampo, setMainCampo] = useState(DataEnum.profesiones)
+    const [promedio, setPromedio] = useState("Ninguno")
     const [filterGeneral, setFilterGeneral] = useState<[string, number][]>([])
 
     const [filterProfesiones, setFilterProfesiones] = useState<[string, number][]>([])
@@ -65,6 +74,7 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
         [DataEnum.paises]: filterPaises as [string, number][],
         [DataEnum.empleadores]: filterEmpleadores as [string, number][],
         [DataEnum.idiomas]: filterIdiomas as [string, number][],
+        [DataEnum.salarys]: filterIdiomas as [string, number][],
     }
     const mapperIndex = {
         [DataEnum.profesiones]: dataIndex.profesionesIndex,
@@ -75,12 +85,14 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
         [DataEnum.experiencias]: dataIndex.experienciasIndex,
         [DataEnum.paises]: dataIndex.paisesIndex,
         [DataEnum.empleadores]: dataIndex.empleadoresIndex,
-        [DataEnum.idiomas]: dataIndex.idiomasIndex
+        [DataEnum.idiomas]: dataIndex.idiomasIndex,
+        [DataEnum.salarys]: dataIndex.salarysIndex
     }
+    const [dataType, setDataType] = useState(DataType.cantidad)
 
     useEffect(() => {
         const temp: [string, number][] = []
-        mapperFilter[mainCampo].forEach(([key,]) => {
+        mapperFilter[mainCampo].forEach(([key]) => {
             let profesionSet = new Set<number>
             let tecnologiaSet = new Set<number>
             let campoSet = new Set<number>
@@ -155,13 +167,40 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                 })
                 interseccion = interseccion.intersection(idiomaSet)
             }
+            if (promedio !== "Ninguno") {
+                const indexPromedio: DataEnum = Object.values(DataEnum).find((value) => value === promedio) || DataEnum.salaryRanges
+                let sum = 0
+                let cant = 0
+                if (indexPromedio === DataEnum.salarys) {
+                    Object.entries(mapperIndex[indexPromedio]).forEach(([salary, set]) => {
+                        sum += parseFloat(salary) * set.intersection(mapperIndex[mainCampo][key]).size
+                        cant+= set.intersection(mapperIndex[mainCampo][key]).size
+                    })
+                    temp.push([key, sum / cant])
 
-            temp.push([key, interseccion.size])
+                }
+                if (indexPromedio === DataEnum.experiencias) {
+                    Object.entries(mapperIndex[indexPromedio]).forEach(([xp, set]) => {
+                        sum += parseFloat(xp) * set.intersection(mapperIndex[mainCampo][key]).size
+                        cant+= set.intersection(mapperIndex[mainCampo][key]).size
+                    })
+                    temp.push([key, sum / cant])
+                }
+                console.log(mapperIndex[indexPromedio])
+            } else {
+                switch (dataType) {
+                    case DataType.cantidad:
+                        temp.push([key, interseccion.size])
+                        break
+                    case DataType.porciento:
+                        temp.push([key, interseccion.size * 100 / mapperIndex[mainCampo][key].size])
+                        break
+                }
+            }
 
         })
         setFilterGeneral(temp)
-    }, [mainCampo, filterProfesiones, filterTecnologias, filterCampos, filterModalidades, filterSalaryRanges, filterExperiencias, filterPaises, filterEmpleadores, filterIdiomas]);
-
+    }, [promedio, dataType, mainCampo, filterProfesiones, filterTecnologias, filterCampos, filterModalidades, filterSalaryRanges, filterExperiencias, filterPaises, filterEmpleadores, filterIdiomas]);
 
     return (
         <section>
@@ -169,10 +208,41 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                 <div className={'flex flex-col w-full lg:w-1/3 text-pretty'}>
                     <h1 className={'font-bold text-3xl'}>Grafico Personalizado</h1>
                     <p>Seleccione la información que desee conocer y la pondremos a su disposición</p>
+
                 </div>
-                <div className={'w-full lg:p-28'}>
-                    <MyBarChart name={'General'} description={'Grafico generado a partir de los filtros anteriores'}
-                                data={mySort(filterGeneral)}/>
+                <div className={'w-full lg:p-10 flex flex-col space-y-4'}>
+                    <div>
+                        <h1 className={'font-bold'}>Tipo de gráfico:</h1>
+                        <div className={'flex space-x-6 flex-wrap'}>
+
+                            {
+
+                                Object.values(DataType).map((name, index) => {
+                                    return (
+                                        <article key={index} className={'flex space-x-3 items-center'}>
+                                            <h2>{name}</h2>
+                                            <MyRadioButton className={'size-4'}
+                                                           isEnabled={dataType == Object.entries(DataType)[index][1]}
+                                                           onClick={() => setDataType(Object.entries(DataType)[index][1] as DataType)}/>
+                                        </article>
+                                    )
+                                })
+                            }
+                            <MyDropDownMenu sectores={["Salario", "Experiencia"]}
+                                            selected={promedio}
+                                            setSelected={setPromedio}>
+                                <button className={'border-none outline-none'}>
+                                    Ver promedio: {promedio}
+                                </button>
+                            </MyDropDownMenu>
+                        </div>
+
+                    </div>
+
+                    <PersonalizadoChart name={'General'}
+                                        description={'Grafico generado a partir de los filtros anteriores'}
+                                        data={mySort(filterGeneral)}
+                                        dataTypeName={promedio === "Ninguno" ? dataType : promedio + " promedio: "}/>
 
                 </div>
 
