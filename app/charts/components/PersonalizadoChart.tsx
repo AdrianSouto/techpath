@@ -13,8 +13,6 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 import {getRandomColor} from "@/lib/utils";
-import {useState} from "react";
-import MyRadioButton from "@/components/MyRadioButton";
 
 export const description = "A mixed bar chart"
 
