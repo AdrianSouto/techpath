@@ -16,6 +16,7 @@ export default function More({ setShowMore, data, filter, setFilter }: Props) {
     return (
         <section className={"mt-20 w-[90svw]"}>
             <div className={"flex flex-col lg:flex-row items-center justify-between w-full px-10 space-y-2"}>
+                
                 <button
                     onClick={() => setShowMore(false)}
                     className={"flex font-bold justify-center items-center border-tuatara-950 py-2 px-4 bg-white rounded-full border-2 hover:cursor-pointer hover:bg-tuatara-950 hover:text-tuatara-100 transition-all hover:scale-105"}

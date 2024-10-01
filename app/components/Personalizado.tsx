@@ -173,16 +173,16 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                 let cant = 0
                 if (indexPromedio === DataEnum.salarys) {
                     Object.entries(mapperIndex[indexPromedio]).forEach(([salary, set]) => {
-                        sum += parseFloat(salary) * set.intersection(mapperIndex[mainCampo][key]).size
-                        cant+= set.intersection(mapperIndex[mainCampo][key]).size
+                        sum += parseFloat(salary) * set.intersection(interseccion).size
+                        cant+= set.intersection(interseccion).size
                     })
                     temp.push([key, sum / cant])
 
                 }
                 if (indexPromedio === DataEnum.experiencias) {
                     Object.entries(mapperIndex[indexPromedio]).forEach(([xp, set]) => {
-                        sum += parseFloat(xp) * set.intersection(mapperIndex[mainCampo][key]).size
-                        cant+= set.intersection(mapperIndex[mainCampo][key]).size
+                        sum += parseFloat(xp) * set.intersection(interseccion).size
+                        cant+= set.intersection(interseccion).size
                     })
                     temp.push([key, sum / cant])
                 }

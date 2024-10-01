@@ -12,7 +12,8 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
-import {getRandomColor} from "@/lib/utils";
+import {getRandomColor, getSortedSliced} from "@/lib/utils";
+import {useState} from "react";
 
 export const description = "A mixed bar chart"
 
@@ -26,12 +27,13 @@ type Props = {
 }
 
 export function PersonalizadoChart(props: Props) {
-
+    const [slice, setSlice] = useState(10)
+    const data = getSortedSliced(props.data, slice)
     const chartData: {
         name: string,
         cantidad: number,
         fill: string
-    }[] = props.data.map(([name, cantidad]) => (
+    }[] = data.map(([name, cantidad]) => (
         {
             name: name,
             cantidad: cantidad,
@@ -49,9 +51,13 @@ export function PersonalizadoChart(props: Props) {
     return (
         <div className={`${props.className ? props.className : 'h-[80vh] lg:h-fit'}`}>
             <Card className={'flex-col flex h-full'}>
-                <CardHeader>
+                <CardHeader className={'relative'}>
                     <CardTitle>{props.name}</CardTitle>
                     <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
+                    <div  className={'absolute right-4 top-4 flex space-x-3'}>
+                        <h2 className={'text-sm font-bold'}>Mostrar TOP: </h2>
+                        <input className={'w-20 '} value={slice} type={"number"} onChange={(e) => setSlice(parseFloat(e.target.value))}/>
+                    </div>
                 </CardHeader>
                 <CardContent className={'size-1/2'}>
                     <ChartContainer config={chartConfig} className={'size-full'}>
