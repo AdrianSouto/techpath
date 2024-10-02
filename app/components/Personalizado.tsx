@@ -31,6 +31,7 @@ type Props = {
         empleadoresIndex: Record<string, Set<number>>
         idiomasIndex: Record<string, Set<number>>
         salarysIndex: Record<string, Set<number>>
+        total: number
     }
     dataCount: {
         profesiones: [string, number][]
@@ -46,8 +47,9 @@ type Props = {
 }
 
 enum DataType {
-    porciento = 'Porciento: ',
-    cantidad = 'Cantidad: '
+    cantidad = 'Cantidad: ',
+    porciento = 'Porciento respecto a eje Y: ',
+    porcientoTotal = 'Porciento del Total: ',
 }
 
 export default function Personalizado({dataIndex, dataCount}: Props) {
@@ -195,6 +197,9 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                     case DataType.porciento:
                         temp.push([key, interseccion.size * 100 / mapperIndex[mainCampo][key].size])
                         break
+                    case DataType.porcientoTotal:
+                        temp.push([key, interseccion.size * 100 / dataIndex.total])
+                        break
                 }
             }
 
@@ -222,7 +227,7 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                                         <article key={index} className={'flex space-x-3 items-center'}>
                                             <h2>{name}</h2>
                                             <MyRadioButton className={'size-4'}
-                                                           isEnabled={dataType == Object.entries(DataType)[index][1]}
+                                                           isEnabled={dataType == Object.entries(DataType)[index][1] && promedio === "Ninguno"}
                                                            onClick={() => setDataType(Object.entries(DataType)[index][1] as DataType)}/>
                                         </article>
                                     )

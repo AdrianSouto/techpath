@@ -119,6 +119,7 @@ export async function makeData() {
         paisesIndex,
         empleadoresIndex,
         idiomasIndex,
-        salarysIndex
+        salarysIndex,
+        total: Object.values(data).length
     }
 }
