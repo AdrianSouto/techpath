@@ -43,7 +43,8 @@ type Props = {
         paises: [string, number][]
         empleadores: [string, number][]
         idiomas: [string, number][]
-    }
+    },
+    className?: string
 }
 
 enum DataType {
@@ -52,7 +53,7 @@ enum DataType {
     porcientoTotal = 'Porciento del Total: ',
 }
 
-export default function Personalizado({dataIndex, dataCount}: Props) {
+export default function Personalizado({dataIndex, dataCount, className}: Props) {
     const [mainCampo, setMainCampo] = useState(DataEnum.profesiones)
     const [promedio, setPromedio] = useState("Ninguno")
     const [filterGeneral, setFilterGeneral] = useState<[string, number][]>([])
@@ -208,11 +209,11 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
     }, [promedio, dataType, mainCampo, filterProfesiones, filterTecnologias, filterCampos, filterModalidades, filterSalaryRanges, filterExperiencias, filterPaises, filterEmpleadores, filterIdiomas]);
 
     return (
-        <section>
+        <section className={className}>
             <div className={'flex flex-col w-full'}>
                 <div className={'flex flex-col w-full lg:w-1/3 text-pretty'}>
                     <h1 className={'font-bold text-3xl'}>Grafico Personalizado</h1>
-                    <p>Seleccione la información que desee conocer y la pondremos a su disposición</p>
+                    <p>Seleccione abajo la información que desee mostrar y la pondremos a su disposición</p>
 
                 </div>
                 <div className={'w-full lg:p-10 flex flex-col space-y-4'}>

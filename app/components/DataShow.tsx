@@ -7,6 +7,7 @@ import {mySort} from "@/lib/utils";
 
 
 type Props = {
+    id?: string
     title: string,
     subtitle: string,
     description: string,
@@ -14,14 +15,13 @@ type Props = {
     chartType?: string
 }
 
-export default function DataShow({title, subtitle, description, data, chartType = 'bar'}: Props) {
+export default function DataShow({id, title, subtitle, description, data, chartType = 'bar'}: Props) {
     const sortedProfesiones = data.sort(([, a], [, b]) => b - a)
     const [showMore, setShowMore] = useState(false)
     const [filter , setFilter] = useState<[string, number][]>([])
     return (
-        <section>
-
-            <div className={'flex lg:flex-row flex-col'}>
+        <section id={id} className={'my-32'}>
+            <div className={'flex lg:flex-row flex-col items-center'}>
                 <div className={'flex flex-col lg:w-1/2 w-full'}>
                     <div className={'flex flex-col lg:w-2/3 w-full text-pretty'}>
                         <h1 className={'font-bold text-3xl'}>{title} <span

@@ -24,7 +24,7 @@ export default function RootLayout({
             <title>TechPath</title>
         </head>
         <body
-            className={`${monserrat.className} antialiased bg-tuatara-50 flex flex-col text-tuatara-950 pb-20`}
+            className={`${monserrat.className} antialiased bg-tuatara-50 flex flex-col text-tuatara-950`}
         >
         <GoogleAnalytics gaId="G-WMBEV2KHNH" />
         <GoogleAnalytics gaId="G-73PWJ3YLY6" />
