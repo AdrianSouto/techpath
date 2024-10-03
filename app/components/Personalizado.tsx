@@ -12,11 +12,11 @@ export enum DataEnum {
     campos = 'Campos',
     modalidades = 'Modalidad de Trabajo',
     salaryRanges = 'Rangos de Salario',
-    experiencias = 'Experiencia',
+    experiencias = 'Experiencia (Años)',
     paises = 'Pais',
     empleadores = 'Empleador',
     idiomas = 'Idiomas',
-    salarys = 'Salario'
+    salarys = 'Salario (USD)',
 }
 
 type Props = {
@@ -228,12 +228,15 @@ export default function Personalizado({dataIndex, dataCount}: Props) {
                                             <h2>{name}</h2>
                                             <MyRadioButton className={'size-4'}
                                                            isEnabled={dataType == Object.entries(DataType)[index][1] && promedio === "Ninguno"}
-                                                           onClick={() => setDataType(Object.entries(DataType)[index][1] as DataType)}/>
+                                                           onClick={() => {
+                                                               setDataType(Object.entries(DataType)[index][1] as DataType)
+                                                               setPromedio("Ninguno")
+                                                           }}/>
                                         </article>
                                     )
                                 })
                             }
-                            <MyDropDownMenu sectores={["Salario", "Experiencia"]}
+                            <MyDropDownMenu sectores={["Salario (USD)", "Experiencia (Años)"]}
                                             selected={promedio}
                                             setSelected={setPromedio}>
                                 <button className={'border-none outline-none'}>

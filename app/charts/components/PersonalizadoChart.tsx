@@ -49,8 +49,8 @@ export function PersonalizadoChart(props: Props) {
     });
 
     return (
-        <div className={`${props.className ? props.className : 'h-[80vh] lg:h-fit'}`}>
-            <Card className={'flex-col flex h-full'}>
+        <div className={' lg:h-fit'}>
+            <Card className={'flex-col flex h-fit'}>
                 <CardHeader className={'relative'}>
                     <CardTitle>{props.name}</CardTitle>
                     <CardDescription>{props.description || `${props.name} mas usadas`} </CardDescription>
@@ -59,7 +59,7 @@ export function PersonalizadoChart(props: Props) {
                         <input className={'w-20 '} value={slice} type={"number"} onChange={(e) => setSlice(parseFloat(e.target.value))}/>
                     </div>
                 </CardHeader>
-                <CardContent className={'size-1/2'}>
+                <CardContent className={'h-fit w-full'}>
                     <ChartContainer config={chartConfig} className={'size-full'}>
                         <BarChart
                             accessibilityLayer
@@ -78,7 +78,7 @@ export function PersonalizadoChart(props: Props) {
                                 axisLine={false}
                                 tickFormatter={(value) => chartConfig[value as keyof typeof chartConfig]?.label || value}
                             />
-                            <XAxis dataKey="cantidad" type="number" hide/>
+                            <XAxis dataKey="cantidad" type="number"/>
                             <ChartTooltip
                                 cursor={false}
                                 content={<ChartTooltipContent hideLabel/>}

@@ -1,7 +1,8 @@
 import * as React from "react";
 import {ArrowLeft, Search} from "lucide-react";
 import { getSortedSliced } from "@/lib/utils";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import MyCheckBox from "@/components/MyCheckBox";
 
 type Props = {
     setShowMore: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,8 +12,16 @@ type Props = {
 };
 
 export default function More({ setShowMore, data, filter, setFilter }: Props) {
+    const [allSelected, setAllSelected] = useState(false)
     const sortedProfesiones = getSortedSliced(data, 50);
     const [searchText, setSearchText] = useState('')
+    useEffect(() => {
+        if (allSelected) {
+            setFilter(sortedProfesiones)
+        } else {
+            setFilter([])
+        }
+    }, [allSelected]);
     return (
         <section className={"mt-20 w-[90svw]"}>
             <div className={"flex flex-col lg:flex-row items-center justify-between w-full px-10 space-y-2"}>
@@ -26,9 +35,9 @@ export default function More({ setShowMore, data, filter, setFilter }: Props) {
                 </button>
                 <h1 className={"lg:ms-10 font-bold uppercase lg:absolute lg:end-1/2 border-b-2 border-blue-600"}>TOP {sortedProfesiones.length}</h1>
                 <div className={"flex flex-col space-y-2"}>
-                    <div className={'flex'}>
+                    <div className={'flex space-x-3'}>
                         <h2 className={"ms-10 font-semibold text-green-700"}>Seleccionados: {filter.length} </h2>
-
+                        <MyCheckBox checked={allSelected} setChecked={setAllSelected}/>
                     </div>
                     <div className={"relative"}>
                         <input
