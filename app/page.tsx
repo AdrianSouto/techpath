@@ -18,7 +18,8 @@ export default function Main() {
         paisesIndex: {},
         empleadoresIndex: {},
         idiomasIndex: {},
-        salarysIndex: {}
+        salarysIndex: {},
+        total:0
     })
     useEffect(() => {
         async function fetchData() {
