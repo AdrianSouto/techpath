@@ -6,7 +6,7 @@ import * as React from "react";
 
 export default function Footer(){
     return (
-        <footer className={'flex bg-tuatara-900 text-tuatara-50 h-svh p-20 m-0 relative'}>
+        <footer className={'flex bg-tuatara-900 text-tuatara-50 h-dvh p-20 m-0 relative'}>
             <div className={'lg:w-2/3 w-full flex flex-col justify-between'}>
                 <div className={'flex flex-col w-full lg:w-1/2 text-pretty space-y-3'}>
                     <h1 className={'font-bold text-3xl'}>¿Aún no encuentra lo que buscaba?</h1>
