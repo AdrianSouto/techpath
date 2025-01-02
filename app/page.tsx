@@ -79,7 +79,7 @@ export default function Main() {
 
             </div>
             <footer className={'flex bg-tuatara-900 text-tuatara-50 h-svh p-20 m-0 relative'}>
-                <div className={'flex flex-col justify-between'}>
+                <div className={'lg:w-2/3 w-full flex flex-col justify-between'}>
                     <div className={'flex flex-col w-full lg:w-1/2 text-pretty space-y-3'}>
                         <h1 className={'font-bold text-3xl'}>¿Aún no encuentra lo que buscaba?</h1>
                         <p>Visite nuestra sección de grafico personalizado, y cree el suyo propio con los
@@ -115,7 +115,7 @@ export default function Main() {
                         </div>
                     </div>
                 </div>
-                <div className={'h-full flex flex-col justify-center items-center'}>
+                <div className={'h-full invisible lg:visible flex flex-col justify-center items-center'}>
                     <Code width={300} height={300} color={"#e5e5e2"}/>
                     <h1 className={"font-semibold text-3xl"}>TECH PATH</h1>
                 </div>
