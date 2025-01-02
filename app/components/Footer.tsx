@@ -29,7 +29,7 @@ export default function Footer(){
                             rel="noopener noreferrer"
                             className={'flex space-x-3 border-2 rounded-sm w-fit px-3 py-1 font-semibold hover:cursor-pointer hover:bg-tuatara-700'}>
                             <p>Instagram</p>
-                            <Instagram/>
+                            <Instagram width={24} height={24}/>
                         </Link>
 
                         <Link
@@ -38,7 +38,7 @@ export default function Footer(){
                             rel="noopener noreferrer"
                             className={'flex space-x-3 border-2 rounded-sm w-fit px-3 py-1 font-semibold hover:cursor-pointer hover:bg-tuatara-700'}>
                             <p>Telegram</p>
-                            <Image src={TelegramIcon} alt={'Icono de telegram'} color={'#F7F7F7'}/>
+                            <Image src={TelegramIcon} width={24} height={24} alt={'Icono de telegram'} color={'#F7F7F7'}/>
                         </Link>
                     </div>
                 </div>
