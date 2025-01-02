@@ -22,14 +22,14 @@ export default function Footer(){
                 </div>
                 <div className={'flex flex-col w-full lg:w-1/2 text-pretty space-y-3'}>
                     <h1 className={'font-bold text-xl'}>Visite nuestras redes sociales:</h1>
-                    <div className={'flex space-x-6'}>
+                    <div className={'lg:flex-row flex-col flex lg:space-x-6 space-y-4'}>
                         <Link
                             href={'https://www.instagram.com/tech_path_information?igsh=MXN5YjlkdnI2a2dnOA=='}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={'flex space-x-3 border-2 rounded-sm w-fit px-3 py-1 font-semibold hover:cursor-pointer hover:bg-tuatara-700'}>
                             <p>Instagram</p>
-                            <Instagram/>
+                            <Instagram width={24} height={24}/>
                         </Link>
 
                         <Link
@@ -38,12 +38,12 @@ export default function Footer(){
                             rel="noopener noreferrer"
                             className={'flex space-x-3 border-2 rounded-sm w-fit px-3 py-1 font-semibold hover:cursor-pointer hover:bg-tuatara-700'}>
                             <p>Telegram</p>
-                            <Image src={TelegramIcon} alt={'Icono de telegram'} color={'#F7F7F7'}/>
+                            <Image src={TelegramIcon} width={24} height={24} alt={'Icono de telegram'} color={'#F7F7F7'}/>
                         </Link>
                     </div>
                 </div>
             </div>
-            <div className={'h-full invisible lg:visible flex flex-col justify-center items-center'}>
+            <div className={'h-full hidden lg:visible lg:flex flex-col justify-center items-center'}>
                 <Code width={300} height={300} color={"#e5e5e2"}/>
                 <h1 className={"font-semibold text-3xl"}>TECH PATH</h1>
             </div>
